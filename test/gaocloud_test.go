@@ -18,13 +18,13 @@ import (
 	ut "github.com/gsmlg-opt/GaoCloud/cement/unittest"
 	zkecore "github.com/gsmlg-opt/GaoCloud/zke/core"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/authentication"
-	"github.com/gsmlg-opt/gaocloud/pkg/authorization"
-	"github.com/gsmlg-opt/gaocloud/pkg/clusteragent"
-	//"github.com/gsmlg-opt/gaocloud/pkg/globaldns"
-	"github.com/gsmlg-opt/gaocloud/pkg/handler"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
-	"github.com/gsmlg-opt/gaocloud/server"
+	"github.com/gsmlg-opt/GaoCloud/pkg/authentication"
+	"github.com/gsmlg-opt/GaoCloud/pkg/authorization"
+	"github.com/gsmlg-opt/GaoCloud/pkg/clusteragent"
+	//"github.com/gsmlg-opt/GaoCloud/pkg/globaldns"
+	"github.com/gsmlg-opt/GaoCloud/pkg/handler"
+	"github.com/gsmlg-opt/GaoCloud/pkg/types"
+	"github.com/gsmlg-opt/GaoCloud/server"
 	storage "github.com/gsmlg-opt/GaoCloud/kvzoo/backend/bolt"
 )
 

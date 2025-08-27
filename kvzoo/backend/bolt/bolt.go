@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/boltdb/bolt"
+	go.etcd.io/bbolt"
 	"kvzoo"
 )
 
@@ -26,7 +26,7 @@ var (
 
 type BoltDB struct {
 	path string
-	db   *bolt.DB
+	db   *bbolt.DB
 }
 
 func New(path string) (kvzoo.DB, error) {
@@ -41,7 +41,7 @@ func New(path string) (kvzoo.DB, error) {
 		}
 	}
 
-	db, err := bolt.Open(path, 0664, &bolt.Options{
+	db, err := bbolt.Open(path, 0664, &bbolt.Options{
 		Timeout: openTimeout,
 	})
 	if err != nil {
@@ -87,7 +87,7 @@ func (db *BoltDB) Checksum() (string, error) {
 	return hex.EncodeToString(h.Sum(nil)[:16]), nil
 }
 
-func (db *BoltDB) bucketCheckSum(h hash.Hash, b *bolt.Bucket) {
+func (db *BoltDB) bucketCheckSum(h hash.Hash, b *bbolt.Bucket) {
 	c := b.Cursor()
 	k, v := c.First()
 	if k != nil {
@@ -176,8 +176,8 @@ func (db *BoltDB) DeleteTable(tableName kvzoo.TableName) error {
 	return tx.Commit()
 }
 
-func createOrGetBucket(tx *bolt.Tx, tableName string) (*bolt.Bucket, error) {
-	var bucket *bolt.Bucket
+func createOrGetBucket(tx *bbolt.Tx, tableName string) (*bbolt.Bucket, error) {
+	var bucket *bbolt.Bucket
 	var err error
 	for i, table := range strings.Split(strings.TrimPrefix(tableName, "/"), "/") {
 		if table == "" {
@@ -200,7 +200,7 @@ func createOrGetBucket(tx *bolt.Tx, tableName string) (*bolt.Bucket, error) {
 
 type DBTable struct {
 	name string
-	db   *bolt.DB
+	db   *bbolt.DB
 }
 
 func (db *DBTable) Begin() (kvzoo.Transaction, error) {
@@ -226,7 +226,7 @@ func (db *DBTable) Begin() (kvzoo.Transaction, error) {
 }
 
 type TableTX struct {
-	bucket *bolt.Bucket
+	bucket *bbolt.Bucket
 }
 
 func (tx *TableTX) Rollback() error {
