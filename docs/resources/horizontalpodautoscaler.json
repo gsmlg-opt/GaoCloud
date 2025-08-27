@@ -1,0 +1,126 @@
+{
+  "resourceType": "horizontalpodautoscaler",
+  "collectionName": "horizontalpodautoscalers",
+  "parentResources": [
+    "namespace"
+  ],
+  "goStructName": "HorizontalPodAutoscaler",
+  "supportAsyncDelete": true,
+  "resourceFields": {
+    "customMetrics": {
+      "type": "array",
+      "elemType": "customMetricSpec"
+    },
+    "maxReplicas": {
+      "type": "int",
+      "description": [
+        "required"
+      ]
+    },
+    "minReplicas": {
+      "type": "int"
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain",
+        "immutable"
+      ]
+    },
+    "resourceMetrics": {
+      "type": "array",
+      "elemType": "resourceMetricSpec"
+    },
+    "scaleTargetKind": {
+      "type": "enum",
+      "validValues": [
+        "deployment",
+        "statefulset"
+      ],
+      "description": [
+        "required"
+      ]
+    },
+    "scaleTargetName": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain"
+      ]
+    },
+    "status": {
+      "type": "horizontalPodAutoscalerStatus",
+      "description": [
+        "readonly"
+      ]
+    }
+  },
+  "subResources": {
+    "customMetricSpec": {
+      "averageValue": {
+        "type": "string"
+      },
+      "labels": {
+        "type": "map",
+        "keyType": "string",
+        "valueType": "string"
+      },
+      "metricName": {
+        "type": "string"
+      }
+    },
+    "horizontalPodAutoscalerStatus": {
+      "currentMetrics": {
+        "type": "metricStatus"
+      },
+      "currentReplicas": {
+        "type": "int"
+      },
+      "desiredReplicas": {
+        "type": "int"
+      }
+    },
+    "metricStatus": {
+      "customMetrics": {
+        "type": "array",
+        "elemType": "customMetricSpec"
+      },
+      "resourceMetrics": {
+        "type": "array",
+        "elemType": "resourceMetricSpec"
+      }
+    },
+    "resourceMetricSpec": {
+      "averageUtilization": {
+        "type": "int"
+      },
+      "averageValue": {
+        "type": "string"
+      },
+      "resourceName": {
+        "type": "enum",
+        "validValues": [
+          "cpu",
+          "memory"
+        ]
+      },
+      "targetType": {
+        "type": "enum",
+        "validValues": [
+          "Utilization",
+          "AverageValue"
+        ]
+      }
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE",
+    "PUT"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

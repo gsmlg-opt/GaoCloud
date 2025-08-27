@@ -1,0 +1,897 @@
+一、总体说明
+1. 协议：编程接口是基于HTTPS协议的REST接口，创建使用POST方法，修改使用PUT方法，删除使用DELETE方法
+2. 端口：默认8080端口
+3. 参数说明：创建和修改传输的参数为json格式
+4. controller server 执行参数说明
+	-e : vanguard程序所在目录 
+	-c : 配置文件路径
+	-i : 监听ip:port
+	-k : 密钥路径
+    -u : 用户名:密码  admin:zdns
+
+
+二、服务管理
+1. 启动服务
+方法：post
+URL：http://ip:port/service/start
+参数说明：
+返回结果：
+操作成功，返回：
+{"result":		"succeed"}
+操作失败，返回错误编码：
+{"error":		“错误编码”｝
+
+范例：
+	curl -X POST
+	 https://127.0.0.1:8080/service/start -k -u admin:zdns
+返回结果：
+{"result":	“succeed"}
+
+
+2. 停止服务
+方法：post
+URL: http://ip:port/service/stop
+返回结果：
+操作成功，返回：
+{"result":      "succeed"}
+操作失败，返回错误编码：
+{"error":       “错误编码”｝
+
+范例：
+curl -X POST
+https://127.0.0.1:8080/service/stop -k -u admin:zdns
+返回结果：
+{"result":  "succeed"}
+
+三、视图管理
+1.	创建视图
+方法:	post
+URL：	http://ip:port/views
+参数说明：
+	{
+		"name":			“视图名称”,
+		"acls":			["acl_A","acl_B"…],"访问控制名字列表"
+        "priority": "优先级别"
+	}
+返回结果：
+	A、操作成功，返回视图信息：
+	{
+"id":				"视图ID",
+"name":			"视图名称",
+"priority":		"优先级”,
+"dns64s":			["DNS64_A"," DNS64_B"…],
+"fail_forwarder":	"失败转发地址",
+"acls":			["acl_A","acl_B"…],
+"query_source":		"视图查询地址",
+"href":			"视图的URL",
+"owners":			["设备_A","设备_B"…],
+"zones":			["区_A","区_B"…],
+"comment":			"备注"
+}
+B、操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+创建视图v2命令：
+curl -X POST 
+http://127.0.0.1:8080/views
+-H "Content-Type: application/json" 
+-d '{“name":"v2","acls":["telecom","unicom"], "order": 2}'
+
+返回结果：
+{“id":"v2","name":"v2","priority":2,
+"acls":["telecom","unicom"],"href":"/views/v2"}
+
+2.	删除视图
+方法:	delete
+URL:		http://ip:port/views/:view_id
+		(view_id组成：		view_id即视图名称)
+参数说明：
+	{"current_user":		"admin"}
+返回值：
+操作成功，返回：
+{"result":		"succeed"}
+操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+删除视图telecom命令：
+curl -X DELETE http://127.0.0.1:8080/view/v2
+返回结果：
+{"result":	"succeed"}
+
+3.	修改视图
+方法:	put
+URL:		http://ip:port/views/:view_id
+		(view_id组成：		view_id即视图名称)
+参数说明：
+{
+		"acls":			["acl_A","acl_B"…],
+	}
+返回结果：
+	A、操作成功，返回视图信息：
+	{
+"id":				"视图ID",
+"name":			"视图名称",
+"priority":		"优先级”,
+"dns64s":			["DNS64_A"," DNS64_B"…],
+"fail_forwarder":	"失败转发地址",
+"acls":			["acl_A","acl_B"…],
+"query_source":		"视图查询地址",
+"href":			"视图URL",
+"owners":			["设备_A","设备_B"…],
+"zones":			["区_A","区_B"…],
+"comment":			"备注"
+}
+B、操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+修改视图v2命令：
+curl -X PUT
+http://127.0.0.1:8080/views/v2
+-H "Content-Type: application/json" 
+-d '{"acls":["tele","unicom"]}'
+返回结果：
+{"id":"v2","name":"v2","priority":2,"acls":["tele","unicom"],"href":"/views/v2"}
+
+四、区绑定管理
+1.	创建区绑定
+方法:	post
+URL：	http://ip:port/view-bind-names
+参数说明：
+	{
+		"name":			"区名称"
+        “view”:         "视图名称"
+}
+返回结果：
+	A、操作成功，返回视图信息：
+	{
+"id":				"区id",
+"name":			"区名称",
+"view":			"视图名称"
+}
+B、操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+创建视图v1下com区命令：
+curl -X POST 
+http://127.0.0.1:8080/view-bind-names
+-H "Content-Type: application/json" 
+-d '{"name":"com", "view": "v1"}'
+返回结果：
+{"id":"com","name":"com","view":"v1"}
+
+2.	删除区绑定
+方法:	delete
+URL:		http://ip:port/view-bind-names/:name
+参数说明：
+	{"use_view":		"name是不是view名字, yes: 视图名字， 否则是区名字"}
+返回值：
+操作成功，返回：
+{"result":		"succeed"}
+操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+删除视图com下所有区命令：
+curl -X DELETE http://127.0.0.1:8080/view-bind-names/com 
+-d '{"use_view":"yes"}'
+返回结果：
+{"result":	"succeed"}
+
+3.	删除区绑定和区权重绑定
+方法:	delete
+URL:		http://ip:port/smart-views
+参数说明：
+	{"views":		"视图名字列表"}
+返回值：
+操作成功，返回：
+{"result":		"succeed"}
+操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+删除视图v1和v2的区绑定和区权重纪录命令：
+curl -X DELETE http://127.0.0.1:8080/smart-views
+-d '{"views":["v1","v2"]}'
+返回结果：
+{"result":	"succeed"}
+
+4.	修改区绑定
+方法: put	
+URL:		http://ip:port/view-bind-names/:name
+                                (name: 区名字)
+参数说明：
+	{"view":		"view名字"}
+返回值：
+操作成功，返回：
+	{
+"id":				"区id",
+"name":			"区名称",
+"view":			"视图名称"
+}
+操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+修改区com的视图为v2命令：
+curl -X PUT http://127.0.0.1:8080/view-bind-names/com 
+-d '{"view":"v2"}'
+返回结果：
+{"id":"com","name":"com","view":"v2"}
+
+五、区权重管理
+1、更新区权重
+方法：put
+URL:    http://ip:port/view-smartlb-weight
+参数说明：
+{
+    "smartlb_weight": {
+        "name": "视图名字",
+        "weight": "权重",
+    }
+}
+操作成功：
+{"smartlb_weight": {"name", "视图"，“weight”:"权重"}}
+操作失败：
+{"error":       "错误编码"}
+
+范例：
+curl -X PUT http://127.0.0.1:8080/view-smartlb-weight
+-d '{"smartlb_weight":{"name":"v1", "weight":80}}'
+返回结果：
+{"smartlb_weight":{"name":"v1", "weight":80}}
+
+六、访问控制管理
+1.	创建访问控制
+方法:	post
+URL:		http://ip:port/acls
+参数说明：
+{
+	"name":			"访问控制名称"
+"networks":		["network_A","network_B"…]
+	}
+返回值：
+	A、操作成功，返回访问控制信息：
+	{
+"id":				"访问控制id",
+"name":			"访问控制名称",
+"network_count":	网络数量,
+"networks":		["network_A","network_B"…],
+"href":			"访问控制URL",
+"comment":			"备注"
+}
+B、操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+创建访问控制telecom所属设备命令：
+curl -X POST 
+http://127.0.0.1:8080/acls
+-H "Content-Type: application/json" 
+-d '{"name":"telecom","networks":["192.168.1.0/24","192.168.2.0/24"]}'
+
+返回结果：
+{“id":"telecom","name":"telecom","networks":["192.168.1.0/24","192.168.2.0/24"],"href":"/acls/telecom"}
+
+2.	删除访问控制
+方法:	delete
+URL:		http://ip:port/acls/:acl_id
+		(acl_id组成：		acl_id即访问控制名称)
+参数说明：
+{"current_user":		"admin"}
+返回值：
+操作成功，返回：
+{"result":		"succeed"}
+操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+删除视图telecom命令：
+curl -X DELETE
+http://127.0.0.1:8080/acls/telecom
+返回结果：
+{"result":	"succeed"}
+
+3.	修改访问控制
+方法:	put
+URL:		http://ip:port/acls/:acl_id
+		(acl_id组成：		acl_id即访问控制名称)
+参数说明：
+{
+"networks":		["network_A","network_B"…]
+}
+返回值：
+	A、操作成功，返回访问控制信息：
+	{
+"id":				"访问控制id",
+"name":			"访问控制名称",
+"network_count":	网络数量,
+"networks":		["network_A","network_B"…],
+"href":			"访问控制URL",
+"comment":			"备注"
+}
+B、操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+修改访问控制telecom所属设备命令：
+curl -X PUT 
+http://127.0.0.1:8080/acls/:acl_name
+-H "Content-Type: application/json" 
+-d '{"networks":["192.168.1.0/24","192.168.2.0/24"]}'
+返回结果：
+{"id":"telecom","name":"telecom","networks":["192.168.1.0/24","192.168.2.0/24"],"href":"/acls/telecom"}
+
+七、缓存管理
+1.	清除缓存
+方法:	post
+URL:		http://ip:port/cache/clean
+参数说明：
+{
+"domain_name":		"域名（*代表所有域名）",
+"view_name":		“视图名（*代表所有视图）”
+}
+
+返回值：
+A、操作成功，返回成功信息：
+{"result":		"succeed"}
+B、操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+A、清除所有节点所有视图缓存：
+curl -X POST
+http://127.0.0.1:8080/cache/clean
+-H "Content-Type: application/json" 
+-d '{"view_name":"*","domain_name":"*"}'
+返回结果：
+{"result":	"succeed"}
+B、清除所有节点default视图中com域名下的缓存：
+curl -X POST
+http://127.0.0.1:8080/cache/clean
+-H "Content-Type: application/json" 
+-d '{"view_name":"default","domain_name":"com"}'
+返回结果：
+{"result":	“succeed"}
+C、清除所有节点视图中com域名下的缓存：
+curl -X POST
+http://127.0.0.1:8080/cache/clean
+-H "Content-Type: application/json" 
+-d '{“view_name":"*","domain_name":"com"}'
+返回结果：
+{"result":	"succeed"}
+D、清除所有节点default视图下的缓存：
+curl -X POST
+http://127.0.0.1:8080/cache/clean
+-H "Content-Type: application/json" 
+-d '{“view_name":"default","domain_name":"*"}'
+返回结果：
+{"result":	"succeed"}
+
+
+八、转发区管理
+1.	创建转发区
+方法:	post
+URL：	http://ip:port/forward-zones 
+参数说明：
+{
+"view":			"所属视图名称",
+"name":			"转发区名称",
+"forwarders":		["转发服务器_A"," 转发服务器_B"…],
+"zone_content":		“view\nzone\nforwarders”
+}
+返回结果：
+	A、操作成功，返回转发区信息：
+	{
+"id":				"转发区ID",
+"view":			"所属视图名称",
+"name":			"视图名称",
+"forwarders":		["转发服务器_A"," 转发服务器_B"…],
+"forward_style":	"转发方式first|only",
+"owners":			["设备_A","设备_B"…],
+"comment":			"备注"
+}
+B、操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+创建default视图下的转发区com命令：
+curl -X POST
+http://127.0.0.1:8080/forward-zones
+-H "Content-Type: application/json" 
+-d '{“name”:"com","forwarders":["1.1.1.1#53"],"view":"default"}'
+返回结果：
+	{"id":"default,com","name":"com","forwarders":["1.1.1.1#53"],"view":"default"}
+
+2.	删除转发区
+方法:	delete
+URL:		http://ip:port/forward-zones/:forward_zone_id
+(forward_zone_id组成：		由视图名和转发区名以,连接)
+参数说明：
+		{}
+返回值：
+操作成功，返回：
+{"result":		"succeed"}
+操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+删除default视图下的转发区com命令：
+curl -X DELETE
+http://127.0.0.1:8080/forward-zones/default,telecom
+返回结果：
+{"result":	"succeed"}
+
+3.	修改转发区
+方法:	put
+URL：	http://ip:port/forward-zones/:forward_zone_id
+		(forward_zone_id组成：		由视图名和转发区名以,连接)
+参数说明：
+{
+"forwarders":		["转发服务器_A"," 转发服务器_B"…]
+}
+返回结果：
+	A、操作成功，返回转发区信息：
+	{
+"id":				"转发区ID",
+"view":			"所属视图名称",
+"name":			"视图名称",
+"forwarders":		["转发服务器_A"," 转发服务器_B"…],
+"forward_style":	"转发方式first|only",
+"owners":			["设备_A","设备_B"…],
+"comment":			"备注"
+}
+B、操作失败，返回错误编码：
+{"error":		"错误编码"}
+范例：
+修改default视图下的转发区com命令：
+curl -X PUT
+http://127.0.0.1:8080/forward-zones/default,com
+-H "Content-Type: application/json" 
+-d '{“forwarders":["1.1.1.1#53","2.2.2.2#53"], "name":"com"}'
+返回结果：
+	{"id":"default,com","name":"com","forwarders":["1.1.1.1#53","2.2.2.2#53"],"view":"default"}
+
+
+九、性能指标
+1. 获取总的请求QPS
+方法：post
+URL: http://ip:port/vanguard_cmd
+参数说明：
+{
+    "resource_type": "get_metrics",
+    "attrs": {
+        "keys": ["server", "any", "qps"]
+    }
+}
+返回结果：
+A、成功返回当前QPS
+B、失败返回错误信息
+
+范例：
+curl -X GET http://127.0.0.1:8080/vanguard_cmd
+-H "Content-Type: application/json" 
+-d '{"resource_type": "get_metrics", "attrs":{"keys":["server", "any", "qps"]}}'
+返回结果：
+12580
+
+2. 获取总的应答QPS
+方法：get
+URL: http://ip:port/vanguard_cmd
+参数说明：
+{
+    "resource_type": "get_metrics",
+    "attrs": {
+        "keys": ["server", "any", "rps"]
+    }
+}
+返回结果：
+A、成功返回当前response/second
+B、失败返回错误信息
+
+范例：
+curl -X GET http://127.0.0.1:8080/vanguard_cmd
+-H "Content-Type: application/json" 
+-d '{"resource_type": "get_metrics", "attrs":{"keys":["server", "any", "rps"]}}'
+返回结果：
+12580
+
+3. 获取某个view的请求QPS
+方法：post
+URL: http://ip:port/vanguard_cmd
+参数说明：
+{
+    "resource_type": "get_metrics",
+    "attrs": {
+        "keys": ["server", "view name", "qps"]
+    }
+}
+返回结果：
+A、成功返回该view当前QPS
+B、失败返回错误信息
+
+范例：
+curl -X GET http://127.0.0.1:8080/vanguard_cmd
+-H "Content-Type: application/json" 
+-d '{"resource_type": "get_metrics", "attrs":{"keys":["server", "default", "qps"]}}'
+返回结果：
+11880
+
+4. 获取某个view的应答QPS
+方法：post
+URL: http://ip:port/vanguard_cmd
+参数说明：
+{
+    "resource_type": "get_metrics",
+    "attrs": {
+        "keys": ["server", "view name", "rps"]
+    }
+}
+返回结果：
+A、成功返回该view当前QPS
+B、失败返回错误信息
+
+范例：
+curl -X GET http://127.0.0.1:8080/vanguard_cmd
+-H "Content-Type: application/json" 
+-d '{"resource_type": "get_metrics", "attrs":{"keys":["server", "default", "rps"]}}'
+返回结果：
+11880
+
+5. 获取某个view的缓存命中
+方法：post
+URL: http://ip:port/vanguard_cmd
+参数说明：
+{
+    "resource_type": "get_metrics",
+    "attrs": {
+        "keys": ["cache", "view name", "hit"]
+    }
+}
+返回结果：
+A、成功返回该view缓存命中值
+B、失败返回错误信息
+
+范例：
+curl -X GET http://127.0.0.1:8080/vanguard_cmd
+-H "Content-Type: application/json" 
+-d '{"resource_type": "get_metrics", "attrs":{"keys":["cache", "default", "hit"]}}'
+返回结果：
+11880
+
+6. 获取总的缓存命中
+方法：post
+URL: http://ip:port/vanguard_cmd
+参数说明：
+{
+    "resource_type": "get_metrics",
+    "attrs": {
+        "keys": ["cache", "any", "hit"]
+    }
+}
+返回结果：
+A、成功返回缓存总命中值
+B、失败返回错误信息
+
+范例：
+curl -X GET http://127.0.0.1:8080/vanguard_cmd
+-H "Content-Type: application/json" 
+-d '{"resource_type": "get_metrics", "attrs":{"keys":["cache", "hit"]}}'
+返回结果：
+11880
+
+7. 获取总的更新应答
+方法：post
+URL: http://ip:port/vanguard_cmd
+参数说明：
+{
+    "resource_type": "get_metrics",
+    "attrs": {
+        "keys": ["server", "any", "ups"]
+    }
+}
+返回结果：
+A、成功返回更新的应答总数
+B、失败返回错误信息
+
+范例：
+curl -X GET http://127.0.0.1:8080/vanguard_cmd
+-H "Content-Type: application/json" 
+-d '{"resource_type": "get_metrics", "attrs":{"keys":["server", "any", "ups"]}}'
+返回结果：
+11
+
+8. 获取某个view的更新应答
+方法：post
+URL: http://ip:port/vanguard_cmd
+参数说明：
+{
+    "resource_type": "get_metrics",
+    "attrs": {
+        "keys": ["server", "view name", "ups"]
+    }
+}
+返回结果：
+A、成功返回更新的应答总数
+B、失败返回错误信息
+
+范例：
+curl -X GET http://127.0.0.1:8080/vanguard_cmd
+-H "Content-Type: application/json" 
+-d '{"resource_type": "get_metrics", "attrs":{"keys":["server", "default", "ups"]}}'
+返回结果：
+11
+
+附录：错误编码表
+1   =>   any or none acl is read only
+无法创建和修改默认的any/none访问控制
+2   =>   acl already exists
+访问控制已存在
+3   =>   operate non-exist acl
+操作不存在的访问控制
+4   =>   dns64 prefix should be a ipv6 addr
+         DNS64前缀应该是ipv6地址
+5   =>   invalid dns64 prefix netmask
+非法的DNS64前缀掩码
+6   =>   suffix is needed if netmask of prefix smaller than 96
+         DNS64前缀小于96位，需同时配置后缀
+7   =>   DNS64 setting already exists
+         DNS64配置已存在
+8   =>   operate non-exist DNS64 setting
+操作不存在的DNS64配置
+9   =>   tsig key already exists
+         TSIG密钥已存在
+10  =>   delete acl is using by view
+删除被视图引用的访问控制
+11  =>   operate non-exist zone
+操作不存在的区
+12  =>   cache file not exist
+缓存文件不存在
+13  =>   cache size too large
+缓存过大
+14  =>   operate non-exist view
+操作不存在的视图
+15  =>   get zone from backend server failed
+无法从后台获取区数据
+16  =>   zone already exists
+区已存在
+17  =>   unsupported meta data type
+不支持的元数据类型
+18  =>   view already exists
+视图已存在
+19  =>   delete default view
+删除default视图
+20  =>   cann't modify acl of default view
+无法修改default视图的访问控制
+21  =>   operate non-exist rr
+操作不存在的资源记录
+22  =>   conflict key secret
+冲突的TSIG密钥
+23  =>   not supported zone type
+不存在的区类型
+24  =>   operate non-exist shared rr
+操作不存在的共享记录
+25  =>   cann't delete the last shared rr
+无法删除最后一条共享记录
+26  =>   operate non-exist tsig key
+操作不存在的TSIG密钥
+27  =>   reconfig dns server failed
+重新加载DNS服务器配置失败
+28  =>   no rndc-confgen installed
+         rndc配置生成工具未安装
+29  =>black/white list already exists
+黑/白名单已存在
+30  =>   operate non-exist back/white list
+操作不存在的黑/白名单
+31  =>   zone owner doesn't has view owner
+区属主设备没有所属视图
+32  =>   unsupport acl action
+不支持的访问控制类型
+33  =>   no pine-control installed
+         pine控制工具未安装
+34  =>   server already started
+服务已启动
+35  =>   RR format error
+资源记录格式无效
+36  =>   zone transfer failed
+区传送失败
+37  =>   more than one ad zone owner
+         AD区只能指定单个所属设备
+38  =>   update zone failed
+更新区数据失败
+39  =>   shared rr already exists
+创建已存在的共享资源记录
+40  =>   add duplicate rr
+创建重复的资源记录
+41  =>   add exclusive rr
+增加互斥的资源记录
+42  =>   short of glue rr
+缺乏glue记录
+43  =>   conflict with exists cname
+已经存在cname记录
+44  =>   delete unknown rr
+删除不存在的资料记录
+45  =>   can't delete soa rr
+         SOA记录不允许删除
+46  =>   no ns left after delete
+不能删除所有的ns记录
+47  =>   delete glue needed by other rr
+该glue记录被其他记录使用
+48  =>   reverse zone doesn't exist
+无相应反向区，请取消PTR联动后提交
+49  =>   rdata is valid
+记录值部分格式错误
+50  =>   rr is out of zone
+记录不属于要加入的区
+51  =>   configure value isn't valid
+配置值非法
+52  =>   unknown forward style
+未知的转发区方式
+53  =>   duplicate zone master
+区的主服务器或是转发服务器重复
+54  =>   forwarder exists
+转发服务器已存在
+55  =>   operate non-exist forwarder
+操作不存在的转发服务器
+56  =>   operate non-exist view on node
+操作节点上不存在的视图
+57  =>   already exists root zone
+根区冲突
+58  =>only A/AAAA NS is allowed in hint zone
+根配置只允许存在A/AAAA和NS记录
+59  =>   already has root configuration
+重复的根配置
+60  =>   rr type isn't supported
+资源记录类型不支持
+61  =>   can't update slave zone
+不允许更新辅区
+62  =>   duplicate local domain policy
+本地域名策略重复
+63  =>   zone name isn't valid
+区名称无效
+64  =>   add duplicate host
+配置重复的服务器
+65  =>   soa serial number degraded
+         soa序列号小于当前值
+66  =>   root isn't support in local policy
+本地策略不支持根域名
+67  =>   auth zone with same name already exists
+同名权威区已存在
+68  =>   stub zone with same name already exists
+同名存根区已存在
+69  =>   forward zone with same name already exists
+同名转发区已经存在
+70  =>   acl is used by view
+删除被视图应用的访问控制
+71  =>   acl is used by AD zone
+删除被AD区使用的访问控制
+72  =>   rrl policy already exist
+解析限速策略已存在
+73  =>   non-exist rrl policy
+操作不存在的解析限速策略
+74  =>   delete monitor strategy in use
+删除被引用的宕机切换策略
+75  =>   monitor strategy already exist
+宕机切换策略已存在
+76  =>   non exist monitor strategy
+操作不存在的宕机切换策略
+77  =>   node's view querysource already exists
+节点的该视图请求源地址已存在
+78  =>   node's view querysource not exist
+不存在的视图请求源地址配置
+79  =>   too much rrls(over 999)
+限速策略超过系统最大值(999)
+100 =>   version is unknown
+未知版本
+101 =>   patch file broken
+补丁文件无效
+102 =>   source code isn't a release version
+当前系统不是一个发布版本
+103 =>   binding different iface with same ip address
+多个网卡不能绑定到相同的地址上
+104 =>   ntp interval out of range
+非法的NTP同步间隔值
+105 =>   send a test mail failed, check the configuration
+发送测试邮件失败, 请检查配置
+300 =>   invalid ip address
+非法的IP地址
+301 =>   no dns server installed
+未安装DNS服务器
+302 =>   not enough params
+缺少必需参数
+303 =>   not supported backup method
+不支持的备份方式
+304 =>   not supported command method
+不支持的命令方式
+305 =>   service hasn't been init
+服务未初始化
+306 =>   not supported ha type
+不支持的HA类型
+307 =>   member is not accessible
+成员设备无法访问
+308 =>   wrong username and password
+用户名/密码验证失败
+309 =>   nic config failed
+网络配置失败
+310 =>   service hasn't been started
+服务未启动
+311 =>   init params is required
+未指定初始化参数
+312 =>   invalid port
+非法的端口
+313 =>   verify node failed
+无法识别的ZDNS设备
+314 =>   request body json format error
+请求body部分json格式错误
+315 =>   connect backup server timeout
+连接备份服务器超时
+316 =>   data recovery failed
+获取备份数据失败,请检查恢复配置
+317 =>   data backup failed
+数据备份失败,请检查备份配置
+318 =>   lower limit bigger than upper limit
+下限值不应大于上限值
+319 =>   execute command timeout
+分发命令超时
+320 =>   password/role failed
+角色选择或密码输入错误
+404 =>   Wrong url, please check it
+请求的url不正确，请检查
+600 =>   operate non-exist group
+操作不存在的分组
+601 =>   member with same ip alreasy exists
+拥有相同IP的成员已存在
+602 =>   member with same name alreasy exists
+拥有相同名字的成员已存在
+603 =>   operate non-exist member
+操作不存在的成员
+604 =>   not supported service type
+不支持的服务类型
+605 =>   member command queue is full
+成员的命令队列已满
+606 =>   member is performing data recovery
+成员正在进行数据恢复
+607 =>   group already exists
+分组已存在
+608 =>   cann't operate local group
+不允许操作本地分组
+609 =>   user already exists
+用户已存在
+610 =>   operate non-exist user
+操作不存在的用户
+611 =>   init member service failed
+初始化成员服务失败
+612 =>   owners is required
+必须指定资源所属设备
+613 =>   cann't delete the last owner for resource
+无法删除资源的最后一个属主
+614 =>   add duplicate owners
+添加重复属主
+615 =>   old password is wrong
+当前密码错误
+616 =>   cann't delete local group
+不允许删除云中心设备所在分组
+617 =>   cann't delete local member
+不允许删除云中心设备
+618 =>   permission denied
+用户权限不足
+619 =>   unkown authority rule
+不存在的权限配置规则
+620 =>   authority rule already exist
+权限配置规则已存在
+621 =>   invalid backup data
+备份数据无效
+622 =>   device already under management
+该设备已被云中心管理，不允许多次添加
+623 =>   some devices don't exist any more
+无法操作不存在的所属设备
+624 =>   cann't operation inactive cloud
+不允许操作非活跃的中心设备
+625 =>   cann't add multi backup devices
+不允许添加多个备份中心设备
+626 =>   no backup device
+连接备份设备失败，无法进行切换
+627 =>   not master device
+不允许切换非中心设备
+628 =>   not backup device
+云节点不能作为辅中心设备
+629 =>   not slave device
+辅中心设备不能作为云节点
+630 =>   hasn't managed by cloud yet
+不允许切换未被管理的辅中心设备
+631 =>   node can't communicate with master
+节点设备无法与中心设备双向通信
+632 =>   invalid exception handle method
+不支持的异常处理方法
+800 =>   time out while sending alarm msg
+告警消息发送超时

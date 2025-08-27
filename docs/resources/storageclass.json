@@ -1,0 +1,17 @@
+{
+  "resourceType": "storageclass",
+  "collectionName": "storageclasses",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "StorageClass",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "collectionMethods": [
+    "GET"
+  ]
+}

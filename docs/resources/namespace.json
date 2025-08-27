@@ -1,0 +1,132 @@
+{
+  "resourceType": "namespace",
+  "collectionName": "namespaces",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "Namespace",
+  "supportAsyncDelete": true,
+  "resourceFields": {
+    "cpu": {
+      "type": "int",
+      "description": [
+        "readonly"
+      ]
+    },
+    "cpuUsed": {
+      "type": "int",
+      "description": [
+        "readonly"
+      ]
+    },
+    "cpuUsedRatio": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "memory": {
+      "type": "int",
+      "description": [
+        "readonly"
+      ]
+    },
+    "memoryUsed": {
+      "type": "int",
+      "description": [
+        "readonly"
+      ]
+    },
+    "memoryUsedRatio": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain",
+        "immutable"
+      ]
+    },
+    "pod": {
+      "type": "int",
+      "description": [
+        "readonly"
+      ]
+    },
+    "podUsed": {
+      "type": "int",
+      "description": [
+        "readonly"
+      ]
+    },
+    "podUsedRatio": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "podsUseMostCPU": {
+      "type": "array",
+      "elemType": "podCpuInfo",
+      "description": [
+        "readonly"
+      ]
+    },
+    "podsUseMostMemory": {
+      "type": "array",
+      "elemType": "podMemoryInfo",
+      "description": [
+        "readonly"
+      ]
+    }
+  },
+  "subResources": {
+    "podCpuInfo": {
+      "cpuUsed": {
+        "type": "int"
+      },
+      "name": {
+        "type": "string"
+      }
+    },
+    "podMemoryInfo": {
+      "memoryUsed": {
+        "type": "int"
+      },
+      "name": {
+        "type": "string"
+      }
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE",
+    "POST"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ],
+  "resourceActions": [
+    {
+      "name": "searchPod",
+      "input": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "output": {
+        "kind": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "resourceType": "efk",
+  "collectionName": "efks",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "EFK",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "esReplicas": {
+      "type": "int"
+    },
+    "ingressDomain": {
+      "type": "string",
+      "description": [
+        "isDomain"
+      ]
+    },
+    "redirectUrl": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "storageClass": {
+      "type": "string",
+      "description": [
+        "immutable"
+      ]
+    },
+    "storageSize": {
+      "type": "int",
+      "description": [
+        "immutable"
+      ]
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "resourceType": "udpingress",
+  "collectionName": "udpingresses",
+  "parentResources": [
+    "namespace"
+  ],
+  "goStructName": "UDPIngress",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "port": {
+      "type": "int",
+      "description": [
+        "required"
+      ]
+    },
+    "serviceName": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain"
+      ]
+    },
+    "servicePort": {
+      "type": "int",
+      "description": [
+        "required"
+      ]
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

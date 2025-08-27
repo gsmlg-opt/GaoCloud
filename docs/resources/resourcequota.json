@@ -1,0 +1,51 @@
+{
+  "resourceType": "resourcequota",
+  "collectionName": "resourcequotas",
+  "parentResources": [
+    "namespace"
+  ],
+  "goStructName": "ResourceQuota",
+  "supportAsyncDelete": true,
+  "resourceFields": {
+    "limits": {
+      "type": "map",
+      "keyType": "string",
+      "valueType": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain"
+      ]
+    },
+    "status": {
+      "type": "resourceQuotaStatus",
+      "description": [
+        "readonly"
+      ]
+    }
+  },
+  "subResources": {
+    "resourceQuotaStatus": {
+      "limits": {
+        "type": "map",
+        "keyType": "string",
+        "valueType": "string"
+      },
+      "used": {
+        "type": "map",
+        "keyType": "string",
+        "valueType": "string"
+      }
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

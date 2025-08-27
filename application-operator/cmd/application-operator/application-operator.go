@@ -1,0 +1,55 @@
+package main
+
+import (
+	"cement/log"
+	"gok8s/cache"
+	"gok8s/client"
+	"gok8s/client/config"
+	gok8sctrl "gok8s/controller"
+	"gok8s/predicate"
+	"gok8s/publisher"
+
+	appv1beta1 "application-operator/pkg/apis/app/v1beta1"
+	"application-operator/pkg/controller"
+)
+
+func main() {
+	log.InitLogger("debug")
+	cfg, err := config.GetConfig()
+	if err != nil {
+		log.Fatalf("get config failed: %s", err.Error())
+	}
+
+	stop := make(chan struct{})
+	defer close(stop)
+
+	c, err := cache.New(cfg, cache.Options{})
+	if err != nil {
+		log.Fatalf("create cache failed: %s", err.Error())
+	}
+	go c.Start(stop)
+
+	c.WaitForCacheSync(stop)
+
+	var options client.Options
+	options.Scheme = client.GetDefaultScheme()
+	appv1beta1.AddToScheme(options.Scheme)
+	kubeClient, err := client.New(cfg, options)
+	if err != nil {
+		log.Fatalf("create k8s client failed: %s", err.Error())
+	}
+
+	p, err := publisher.New(cfg, options.Scheme)
+	if err != nil {
+		log.Fatalf("create event publisher failed: %s", err.Error())
+	}
+
+	ctrl := gok8sctrl.New("appController", c, options.Scheme)
+	ctrl.Watch(&appv1beta1.Application{})
+	m, err := controller.New(c, kubeClient, p.GetEventRecorderFor("applicationoperator"))
+	if err != nil {
+		log.Fatalf("create application manager failed: %s", err.Error())
+	}
+
+	ctrl.Start(stop, m, predicate.NewIgnoreUnchangedUpdate())
+}

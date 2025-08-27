@@ -1,0 +1,56 @@
+{
+  "resourceType": "registry",
+  "collectionName": "registries",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "Registry",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "adminPassword": {
+      "type": "string",
+      "description": [
+        "immutable"
+      ]
+    },
+    "ingressDomain": {
+      "type": "string",
+      "description": [
+        "immutable",
+        "isDomain"
+      ]
+    },
+    "redirectUrl": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "storageClass": {
+      "type": "string",
+      "description": [
+        "immutable"
+      ]
+    },
+    "storageSize": {
+      "type": "int",
+      "description": [
+        "immutable"
+      ]
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

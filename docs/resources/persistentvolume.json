@@ -1,0 +1,61 @@
+{
+  "resourceType": "persistentvolume",
+  "collectionName": "persistentvolumes",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "PersistentVolume",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "claimRef": {
+      "type": "claimRef",
+      "description": [
+        "readonly"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "storageClassName": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "storageSize": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    }
+  },
+  "subResources": {
+    "claimRef": {
+      "name": {
+        "type": "string"
+      },
+      "namespace": {
+        "type": "string"
+      },
+      "string": {
+        "type": "string"
+      }
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE"
+  ],
+  "collectionMethods": [
+    "GET"
+  ]
+}

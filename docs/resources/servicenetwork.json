@@ -1,0 +1,20 @@
+{
+  "resourceType": "servicenetwork",
+  "collectionName": "servicenetworks",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "ServiceNetwork",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "ip": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "collectionMethods": [
+    "GET"
+  ]
+}

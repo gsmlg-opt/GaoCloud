@@ -1,0 +1,34 @@
+{
+  "resourceType": "podnetwork",
+  "collectionName": "podnetworks",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "PodNetwork",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "nodeName": {
+      "type": "string"
+    },
+    "podCIDR": {
+      "type": "string"
+    },
+    "podIPs": {
+      "type": "array",
+      "elemType": "podIP"
+    }
+  },
+  "subResources": {
+    "podIP": {
+      "ip": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      }
+    }
+  },
+  "collectionMethods": [
+    "GET"
+  ]
+}

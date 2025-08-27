@@ -1,0 +1,75 @@
+{
+  "resourceType": "ingress",
+  "collectionName": "ingresses",
+  "parentResources": [
+    "namespace"
+  ],
+  "goStructName": "Ingress",
+  "supportAsyncDelete": true,
+  "resourceFields": {
+    "maxBodySize": {
+      "type": "int"
+    },
+    "maxBodySizeUnit": {
+      "type": "enum",
+      "validValues": [
+        "m",
+        "k"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain",
+        "immutable"
+      ]
+    },
+    "rules": {
+      "type": "array",
+      "elemType": "ingressRule",
+      "description": [
+        "required"
+      ]
+    }
+  },
+  "subResources": {
+    "ingressRule": {
+      "host": {
+        "type": "string",
+        "description": [
+          "required",
+          "isDomain"
+        ]
+      },
+      "path": {
+        "type": "string",
+        "description": [
+          "required"
+        ]
+      },
+      "serviceName": {
+        "type": "string",
+        "description": [
+          "required",
+          "isDomain"
+        ]
+      },
+      "servicePort": {
+        "type": "int",
+        "description": [
+          "required"
+        ]
+      }
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE",
+    "PUT"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

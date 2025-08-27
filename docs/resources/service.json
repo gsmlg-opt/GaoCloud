@@ -1,0 +1,108 @@
+{
+  "resourceType": "service",
+  "collectionName": "services",
+  "parentResources": [
+    "namespace"
+  ],
+  "goStructName": "Service",
+  "supportAsyncDelete": true,
+  "resourceFields": {
+    "clusterIP": {
+      "type": "string"
+    },
+    "exposedPorts": {
+      "type": "array",
+      "elemType": "servicePort",
+      "description": [
+        "required"
+      ]
+    },
+    "headless": {
+      "type": "bool"
+    },
+    "loadBalanceMethod": {
+      "type": "enum",
+      "validValues": [
+        "rr",
+        "lc",
+        "hash"
+      ]
+    },
+    "loadBalanceVip": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain"
+      ]
+    },
+    "serviceType": {
+      "type": "enum",
+      "validValues": [
+        "clusterip",
+        "nodeport",
+        "loadbalancer"
+      ],
+      "description": [
+        "required"
+      ]
+    }
+  },
+  "subResources": {
+    "intOrString": {
+      "IntVal": {
+        "type": "int"
+      },
+      "StrVal": {
+        "type": "string"
+      },
+      "Type": {
+        "type": "int"
+      }
+    },
+    "servicePort": {
+      "name": {
+        "type": "string",
+        "description": [
+          "required",
+          "isDomain"
+        ]
+      },
+      "nodePort": {
+        "type": "int"
+      },
+      "port": {
+        "type": "int",
+        "description": [
+          "required"
+        ]
+      },
+      "protocol": {
+        "type": "enum",
+        "validValues": [
+          "tcp",
+          "udp"
+        ],
+        "description": [
+          "required"
+        ]
+      },
+      "targetPort": {
+        "type": "intOrString",
+        "description": [
+          "required"
+        ]
+      }
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

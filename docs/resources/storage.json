@@ -1,0 +1,181 @@
+{
+  "resourceType": "storage",
+  "collectionName": "storages",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "Storage",
+  "supportAsyncDelete": true,
+  "resourceFields": {
+    "": {
+      "type": "parameter"
+    },
+    "default": {
+      "type": "bool",
+      "description": [
+        "readonly"
+      ]
+    },
+    "freeSize": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain"
+      ]
+    },
+    "nodes": {
+      "type": "array",
+      "elemType": "storageNode",
+      "description": [
+        "readonly"
+      ]
+    },
+    "phase": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "pvs": {
+      "type": "array",
+      "elemType": "pV",
+      "description": [
+        "readonly"
+      ]
+    },
+    "size": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": [
+        "required"
+      ]
+    },
+    "usedSize": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    }
+  },
+  "subResources": {
+    "iscsiParameter": {
+      "chap": {
+        "type": "bool"
+      },
+      "initiators": {
+        "type": "array",
+        "elemType": "string"
+      },
+      "iqn": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      },
+      "port": {
+        "type": "string"
+      },
+      "targets": {
+        "type": "array",
+        "elemType": "string"
+      },
+      "username": {
+        "type": "string"
+      }
+    },
+    "nfsParameter": {
+      "path": {
+        "type": "string"
+      },
+      "server": {
+        "type": "string"
+      }
+    },
+    "pV": {
+      "freeSize": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "node": {
+        "type": "string"
+      },
+      "pods": {
+        "type": "array",
+        "elemType": "storagePod"
+      },
+      "pvc": {
+        "type": "string"
+      },
+      "size": {
+        "type": "string"
+      },
+      "usedSize": {
+        "type": "string"
+      }
+    },
+    "parameter": {
+      "cephfs": {
+        "type": "storageClusterParameter"
+      },
+      "iscsi": {
+        "type": "iscsiParameter"
+      },
+      "lvm": {
+        "type": "storageClusterParameter"
+      },
+      "nfs": {
+        "type": "nfsParameter"
+      }
+    },
+    "storageClusterParameter": {
+      "hosts": {
+        "type": "array",
+        "elemType": "string"
+      }
+    },
+    "storageNode": {
+      "freeSize": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "size": {
+        "type": "string"
+      },
+      "stat": {
+        "type": "bool"
+      },
+      "usedSize": {
+        "type": "string"
+      }
+    },
+    "storagePod": {
+      "name": {
+        "type": "string"
+      }
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE",
+    "PUT"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

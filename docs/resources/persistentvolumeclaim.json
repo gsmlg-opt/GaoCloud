@@ -1,0 +1,52 @@
+{
+  "resourceType": "persistentvolumeclaim",
+  "collectionName": "persistentvolumeclaims",
+  "parentResources": [
+    "namespace"
+  ],
+  "goStructName": "PersistentVolumeClaim",
+  "supportAsyncDelete": true,
+  "resourceFields": {
+    "actualStorageSize": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "node": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "pods": {
+      "type": "array",
+      "elemType": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "storageClassName": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "used": {
+      "type": "bool",
+      "description": [
+        "readonly"
+      ]
+    }
+  },
+  "resourceMethods": [
+    "DELETE",
+    "PUT"
+  ],
+  "collectionMethods": [
+    "GET"
+  ]
+}

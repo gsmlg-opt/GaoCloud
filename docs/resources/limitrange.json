@@ -1,0 +1,36 @@
+{
+  "resourceType": "limitrange",
+  "collectionName": "limitranges",
+  "parentResources": [
+    "namespace"
+  ],
+  "goStructName": "LimitRange",
+  "supportAsyncDelete": true,
+  "resourceFields": {
+    "max": {
+      "type": "map",
+      "keyType": "string",
+      "valueType": "string"
+    },
+    "min": {
+      "type": "map",
+      "keyType": "string",
+      "valueType": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain"
+      ]
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

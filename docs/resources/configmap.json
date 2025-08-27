@@ -1,0 +1,51 @@
+{
+  "resourceType": "configmap",
+  "collectionName": "configmaps",
+  "parentResources": [
+    "namespace"
+  ],
+  "goStructName": "ConfigMap",
+  "supportAsyncDelete": true,
+  "resourceFields": {
+    "configs": {
+      "type": "array",
+      "elemType": "config",
+      "description": [
+        "required"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain",
+        "immutable"
+      ]
+    }
+  },
+  "subResources": {
+    "config": {
+      "data": {
+        "type": "string",
+        "description": [
+          "required"
+        ]
+      },
+      "name": {
+        "type": "string",
+        "description": [
+          "required"
+        ]
+      }
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE",
+    "PUT"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

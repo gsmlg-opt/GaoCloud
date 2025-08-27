@@ -1,0 +1,78 @@
+{
+  "resourceType": "user",
+  "collectionName": "users",
+  "goStructName": "User",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "name": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain",
+        "immutable"
+      ]
+    },
+    "password": {
+      "type": "string",
+      "description": [
+        "required"
+      ]
+    },
+    "projects": {
+      "type": "array",
+      "elemType": "project"
+    }
+  },
+  "subResources": {
+    "project": {
+      "cluster": {
+        "type": "string",
+        "description": [
+          "isDomain"
+        ]
+      },
+      "namespace": {
+        "type": "string",
+        "description": [
+          "isDomain"
+        ]
+      }
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE",
+    "PUT",
+    "POST"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ],
+  "resourceActions": [
+    {
+      "name": "login",
+      "input": {
+        "password": {
+          "type": "string"
+        }
+      },
+      "output": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "name": "resetPassword",
+      "input": {
+        "newPassword": {
+          "type": "string"
+        },
+        "oldPassword": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "resourceType": "nodenetwork",
+  "collectionName": "nodenetworks",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "NodeNetwork",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "ip": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "collectionMethods": [
+    "GET"
+  ]
+}

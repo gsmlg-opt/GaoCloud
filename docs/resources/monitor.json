@@ -1,0 +1,68 @@
+{
+  "resourceType": "monitor",
+  "collectionName": "monitors",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "Monitor",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "adminPassword": {
+      "type": "string",
+      "description": [
+        "immutable"
+      ]
+    },
+    "ingressDomain": {
+      "type": "string",
+      "description": [
+        "immutable",
+        "isDomain"
+      ]
+    },
+    "prometheusRetention": {
+      "type": "int",
+      "description": [
+        "immutable"
+      ]
+    },
+    "redirectUrl": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "scrapeInterval": {
+      "type": "int",
+      "description": [
+        "immutable"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "storageClass": {
+      "type": "string",
+      "description": [
+        "immutable"
+      ]
+    },
+    "storageSize": {
+      "type": "int",
+      "description": [
+        "immutable"
+      ]
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

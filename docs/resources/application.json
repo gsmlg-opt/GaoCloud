@@ -1,0 +1,103 @@
+{
+  "resourceType": "application",
+  "collectionName": "applications",
+  "parentResources": [
+    "namespace"
+  ],
+  "goStructName": "Application",
+  "supportAsyncDelete": true,
+  "resourceFields": {
+    "appResources": {
+      "type": "array",
+      "elemType": "appResource",
+      "description": [
+        "readonly"
+      ]
+    },
+    "chartIcon": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "chartName": {
+      "type": "string",
+      "description": [
+        "required"
+      ]
+    },
+    "chartVersion": {
+      "type": "string",
+      "description": [
+        "required"
+      ]
+    },
+    "configs": {
+      "type": "json"
+    },
+    "injectServiceMesh": {
+      "type": "bool"
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain"
+      ]
+    },
+    "readyWorkloadCount": {
+      "type": "int",
+      "description": [
+        "readonly"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "workloadCount": {
+      "type": "int",
+      "description": [
+        "readonly"
+      ]
+    }
+  },
+  "subResources": {
+    "appResource": {
+      "creationTimestamp": {
+        "type": "date"
+      },
+      "exists": {
+        "type": "bool"
+      },
+      "link": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "namespace": {
+        "type": "string"
+      },
+      "readyReplicas": {
+        "type": "int"
+      },
+      "replicas": {
+        "type": "int"
+      },
+      "type": {
+        "type": "string"
+      }
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "resourceType": "blockdevice",
+  "collectionName": "blockdevices",
+  "parentResources": [
+    "cluster"
+  ],
+  "goStructName": "BlockDevice",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "blockDevices": {
+      "type": "array",
+      "elemType": "dev"
+    },
+    "nodeName": {
+      "type": "string"
+    },
+    "usedby": {
+      "type": "string"
+    }
+  },
+  "subResources": {
+    "dev": {
+      "name": {
+        "type": "string"
+      },
+      "size": {
+        "type": "string"
+      }
+    }
+  },
+  "collectionMethods": [
+    "GET"
+  ]
+}

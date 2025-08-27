@@ -1,0 +1,104 @@
+{
+  "resourceType": "userquota",
+  "collectionName": "userquotas",
+  "goStructName": "UserQuota",
+  "supportAsyncDelete": false,
+  "resourceFields": {
+    "clusterName": {
+      "type": "string",
+      "description": [
+        "isDomain"
+      ]
+    },
+    "cpu": {
+      "type": "string"
+    },
+    "memory": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "namespace": {
+      "type": "string",
+      "description": [
+        "required",
+        "isDomain"
+      ]
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "rejectionReason": {
+      "type": "string"
+    },
+    "requestType": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "requestor": {
+      "type": "string"
+    },
+    "responseTimestamp": {
+      "type": "date",
+      "description": [
+        "readonly"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    },
+    "storage": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "userName": {
+      "type": "string",
+      "description": [
+        "readonly"
+      ]
+    }
+  },
+  "resourceMethods": [
+    "GET",
+    "DELETE",
+    "PUT",
+    "POST"
+  ],
+  "collectionMethods": [
+    "GET",
+    "POST"
+  ],
+  "resourceActions": [
+    {
+      "name": "approval",
+      "input": {
+        "clusterName": {
+          "type": "string",
+          "description": [
+            "required",
+            "isDomain"
+          ]
+        }
+      }
+    },
+    {
+      "name": "reject",
+      "input": {
+        "reason": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}
