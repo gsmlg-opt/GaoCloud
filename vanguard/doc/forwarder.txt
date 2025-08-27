@@ -1,0 +1,50 @@
+1 创建视图
+视图是ip集合的别名，主要用于区分一个ip地址属于某个运营商或是地域。
+每个dns查询的客户端都会被赋予一个视图，vanguard很多功能都是针对视图来处理。
+
+在view.conf文件中有
+"ip_in_view":{ 
+  "dianxin":{"priority":1, "network":["10.0.2.0/24", "192.168.12.0/24"]},
+  "liantong":{"priority":2, "network":["5.5.5.5/32"]}
+}
+
+dianxin, liangtong都是视图名称，network是视图代表的ip地址
+视图的ip地址在逻辑上来说是不应该有任何交集的，但是由于某些测试的需要，我们
+允许视图的ip有重叠，在这种情况下，一个用户属于那个视图由视图的优先级决定，
+优先级越小越先匹配。
+
+如果用户的ip不属于任何视图，用户的视图就是default，也就是默认的意思。
+
+2 区转发配置
+对于每个视图配置一个或多个转发服务器，转发服务器要和某个区绑定，代表查询
+这个区下的域名时候，就向指定的转发服务器转发。当区之间有包含关系时，跟查询
+域名最接近的区设置会被采纳
+
+"forward_zone":{
+  "dianxin":{
+    "query_source":"",
+    "zone_list":{
+        ".":{
+          "forwarder":["114.114.114.114:53","118.118.118.1:53"],
+          "order":"fix",
+          "match":"subdomain"
+        },  
+  
+        "com":{
+          "forwarder":["119.29.29.29:53"],
+          "order":"roundrobin",
+          "match":"exact"
+        }   
+      }   
+  }
+}
+
+order是当forwarder中有多个地址的时候的调度策略，分别有：fix，roundrobin，rtt 
+fix固定顺序
+roundrobin是轮训
+rtt是按照服务器应答的延迟，最小的被最优先使用
+
+match是本条规则的匹配策略，分别有：subdomain，exact，exception
+subdomain指匹配本域名以及所有只域名
+exact指只匹配本域名
+exception指当匹配本域名时，不做区转发

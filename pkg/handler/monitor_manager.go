@@ -6,15 +6,15 @@ import (
 	"path"
 	"time"
 
-	"github.com/zdnscloud/singlecloud/pkg/charts"
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/pkg/zke"
+	"pkg/charts"
+	"pkg/types"
+	"pkg/zke"
 
-	appv1beta1 "github.com/zdnscloud/application-operator/pkg/apis/app/v1beta1"
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/gok8s/client"
-	resterr "github.com/zdnscloud/gorest/error"
-	restresource "github.com/zdnscloud/gorest/resource"
+	appv1beta1 "application-operator/pkg/apis/app/v1beta1"
+	"cement/log"
+	"gok8s/client"
+	resterr "gorest/error"
+	restresource "gorest/resource"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 )
 

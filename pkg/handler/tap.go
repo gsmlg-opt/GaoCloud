@@ -13,12 +13,12 @@ import (
 	"github.com/golang/protobuf/ptypes/duration"
 	"github.com/gorilla/websocket"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/cement/slice"
-	sm "github.com/zdnscloud/servicemesh"
-	pb "github.com/zdnscloud/servicemesh/public"
+	"cement/log"
+	"cement/slice"
+	sm "servicemesh"
+	pb "servicemesh/public"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"pkg/types"
 )
 
 const (

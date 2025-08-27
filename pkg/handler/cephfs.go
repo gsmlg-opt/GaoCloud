@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/zdnscloud/gok8s/client"
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/pkg/zke"
+	"gok8s/client"
+	"pkg/types"
+	"pkg/zke"
 )
 
 const (

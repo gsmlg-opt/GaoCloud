@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/zdnscloud/cement/slice"
+	"cement/slice"
 )
 
 const (

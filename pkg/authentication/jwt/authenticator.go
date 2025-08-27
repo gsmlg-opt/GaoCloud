@@ -9,11 +9,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/zdnscloud/gorest"
-	resterr "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/authentication/session"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"gorest"
+	resterr "gorest/error"
+	"kvzoo"
+	"pkg/authentication/session"
+	"pkg/types"
 )
 
 const (

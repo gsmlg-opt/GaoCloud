@@ -9,12 +9,12 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	k8stypes "k8s.io/apimachinery/pkg/types"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/g53"
-	"github.com/zdnscloud/gok8s/cache"
+	"cement/log"
+	"g53"
+	"gok8s/cache"
 
-	eb "github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	eb "pkg/eventbus"
+	"pkg/types"
 )
 
 const (

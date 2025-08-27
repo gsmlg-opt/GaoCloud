@@ -8,9 +8,9 @@ import (
 	"net/http"
 
 	"github.com/gorilla/websocket"
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/gok8s/exec"
-	"github.com/zdnscloud/singlecloud/pkg/handler"
+	"cement/log"
+	"gok8s/exec"
+	"pkg/handler"
 	"k8s.io/client-go/tools/remotecommand"
 )
 

@@ -9,14 +9,14 @@ import (
 
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/gok8s/client"
-	resterr "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
-	storagev1 "github.com/zdnscloud/immense/pkg/apis/zcloud/v1"
-	"github.com/zdnscloud/singlecloud/pkg/clusteragent"
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/pkg/zke"
+	"cement/log"
+	"gok8s/client"
+	resterr "gorest/error"
+	"gorest/resource"
+	storagev1 "immense/pkg/apis/zcloud/v1"
+	"pkg/clusteragent"
+	"pkg/types"
+	"pkg/zke"
 )
 
 const (

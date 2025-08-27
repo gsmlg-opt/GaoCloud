@@ -6,19 +6,19 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/pkg/zke/zkelog"
+	"pkg/types"
+	"pkg/zke/zkelog"
 
 	tektonv1alpha1 "github.com/tektoncd/pipeline/pkg/apis/pipeline/v1alpha1"
-	appv1beta1 "github.com/zdnscloud/application-operator/pkg/apis/app/v1beta1"
-	"github.com/zdnscloud/cement/fsm"
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/gok8s/cache"
-	"github.com/zdnscloud/gok8s/client"
-	"github.com/zdnscloud/gok8s/client/config"
-	storagev1 "github.com/zdnscloud/immense/pkg/apis/zcloud/v1"
-	"github.com/zdnscloud/kvzoo"
-	zketypes "github.com/zdnscloud/zke/types"
+	appv1beta1 "application-operator/pkg/apis/app/v1beta1"
+	"cement/fsm"
+	"cement/log"
+	"gok8s/cache"
+	"gok8s/client"
+	"gok8s/client/config"
+	storagev1 "immense/pkg/apis/zcloud/v1"
+	"kvzoo"
+	zketypes "zke/types"
 	"k8s.io/client-go/rest"
 )
 
@@ -311,7 +311,7 @@ func (c *Cluster) ToScCluster() *types.Cluster {
 		ClusterDomain:       c.config.Option.ClusterDomain,
 		ClusterDNSServiceIP: c.config.Option.ClusterDNSServiceIP,
 		ClusterUpstreamDNS:  c.config.Option.ClusterUpstreamDNS,
-		SingleCloudAddress:  c.config.SingleCloudAddress,
+		GaoCloudAddress:  c.config.GaoCloudAddress,
 		ScVersion:           c.scVersion,
 
 		Network: types.ClusterNetwork{

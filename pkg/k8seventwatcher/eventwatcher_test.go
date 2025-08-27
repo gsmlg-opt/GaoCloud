@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	ut "github.com/zdnscloud/cement/unittest"
+	ut "cement/unittest"
 	corev1 "k8s.io/api/core/v1"
 )
 

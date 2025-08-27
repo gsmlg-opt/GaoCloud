@@ -3,12 +3,12 @@ package k8seventwatcher
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"pkg/types"
 	"net/http"
 
 	"github.com/gorilla/websocket"
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/cement/uuid"
+	"cement/log"
+	"cement/uuid"
 )
 
 const (

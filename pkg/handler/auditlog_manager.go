@@ -3,10 +3,10 @@ package handler
 import (
 	"fmt"
 
-	"github.com/zdnscloud/singlecloud/pkg/auditlog"
+	"pkg/auditlog"
 
-	resterr "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
+	resterr "gorest/error"
+	"gorest/resource"
 )
 
 type AuditLogManager struct {

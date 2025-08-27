@@ -3,7 +3,7 @@ package types
 import (
 	"encoding/json"
 
-	"github.com/zdnscloud/gorest/resource"
+	"gorest/resource"
 )
 
 type Application struct {

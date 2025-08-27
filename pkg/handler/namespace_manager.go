@@ -12,14 +12,14 @@ import (
 	"k8s.io/apimachinery/pkg/labels"
 	k8stypes "k8s.io/apimachinery/pkg/types"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/gok8s/client"
-	resterror "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/db"
-	eb "github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"cement/log"
+	"gok8s/client"
+	resterror "gorest/error"
+	"gorest/resource"
+	"kvzoo"
+	"pkg/db"
+	eb "pkg/eventbus"
+	"pkg/types"
 )
 
 const (

@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/gorilla/websocket"
-	"github.com/zdnscloud/cement/log"
+	"cement/log"
 )
 
 const (

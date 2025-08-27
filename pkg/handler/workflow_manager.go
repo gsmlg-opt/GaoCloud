@@ -7,13 +7,13 @@ import (
 	"sort"
 	"time"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"pkg/types"
 
 	tektonv1alpha1 "github.com/tektoncd/pipeline/pkg/apis/pipeline/v1alpha1"
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/gok8s/client"
-	resterror "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
+	"cement/log"
+	"gok8s/client"
+	resterror "gorest/error"
+	"gorest/resource"
 	corev1 "k8s.io/api/core/v1"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

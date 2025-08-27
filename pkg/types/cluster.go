@@ -3,9 +3,9 @@ package types
 import (
 	"strings"
 
-	"github.com/zdnscloud/gok8s/cache"
-	"github.com/zdnscloud/gok8s/client"
-	"github.com/zdnscloud/gorest/resource"
+	"gok8s/cache"
+	"gok8s/client"
+	"gorest/resource"
 	"k8s.io/client-go/rest"
 )
 
@@ -37,7 +37,7 @@ type Cluster struct {
 	Nodes                 []Node             `json:"nodes" rest:"required=true"`
 	Network               ClusterNetwork     `json:"network" rest:"description=immutable"`
 	LoadBalance           ClusterLoadBalance `json:"loadBalance"`
-	SingleCloudAddress    string             `json:"singleCloudAddress" rest:"required=true"`
+	GaoCloudAddress    string             `json:"gaoCloudAddress" rest:"required=true"`
 	Name                  string             `json:"name" rest:"required=true,isDomain=true,description=immutable"`
 	Status                ClusterStatus      `json:"status" rest:"description=readonly"`
 	NodesCount            int                `json:"nodeCount" rest:"description=readonly"`
@@ -118,7 +118,7 @@ func (c *Cluster) TrimFieldSpace() {
 	c.Name = strings.TrimSpace(c.Name)
 	c.SSHUser = strings.TrimSpace(c.SSHUser)
 	c.SSHPort = strings.TrimSpace(c.SSHPort)
-	c.SingleCloudAddress = strings.TrimSpace(c.SingleCloudAddress)
+	c.GaoCloudAddress = strings.TrimSpace(c.GaoCloudAddress)
 	c.ClusterDomain = strings.TrimSpace(c.ClusterDomain)
 	c.ClusterCidr = strings.TrimSpace(c.ClusterCidr)
 	c.ServiceCidr = strings.TrimSpace(c.ServiceCidr)

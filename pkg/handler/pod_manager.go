@@ -11,11 +11,11 @@ import (
 	"k8s.io/apimachinery/pkg/selection"
 	k8stypes "k8s.io/apimachinery/pkg/types"
 
-	"github.com/zdnscloud/gok8s/client"
-	"github.com/zdnscloud/gok8s/helper"
-	resterror "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"gok8s/client"
+	"gok8s/helper"
+	resterror "gorest/error"
+	"gorest/resource"
+	"pkg/types"
 )
 
 const (

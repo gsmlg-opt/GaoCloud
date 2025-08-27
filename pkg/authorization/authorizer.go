@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
-	resttypes "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	resttypes "gorest/resource"
+	"kvzoo"
+	"pkg/types"
 )
 
 const (

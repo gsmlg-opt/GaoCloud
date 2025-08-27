@@ -3,11 +3,11 @@ package k8sshell
 import (
 	"sync"
 
-	"github.com/zdnscloud/cement/log"
+	"cement/log"
 
-	"github.com/zdnscloud/gok8s/exec"
-	eb "github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"gok8s/exec"
+	eb "pkg/eventbus"
+	"pkg/types"
 )
 
 type ExecutorManager struct {

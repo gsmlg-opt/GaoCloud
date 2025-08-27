@@ -100,8 +100,8 @@ func getClusterKubeConfig(addr, token, clusterName string) (string, error) {
 
 func main() {
 	var addr, clusterName, adminPassword string
-	flag.StringVar(&addr, "server", "127.0.0.1:443", "singlecloud server listen address")
-	flag.StringVar(&adminPassword, "passwd", "zcloud", "admin password for singlecloud")
+	flag.StringVar(&addr, "server", "127.0.0.1:443", "gaocloud server listen address")
+	flag.StringVar(&adminPassword, "passwd", "zcloud", "admin password for gaocloud")
 	flag.StringVar(&clusterName, "cluster", "local", "cluster name")
 	flag.Parse()
 
@@ -112,7 +112,7 @@ func main() {
 
 	kubeConfig, err := getClusterKubeConfig(addr, token, clusterName)
 	if err != nil {
-		log.Fatalf("get kubeConfig from singlecloud failed %s", err.Error())
+		log.Fatalf("get kubeConfig from gaocloud failed %s", err.Error())
 	}
 
 	fileName := "kube_config_" + clusterName + ".yml"

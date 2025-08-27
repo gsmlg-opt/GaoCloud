@@ -1,7 +1,7 @@
 package types
 
 import (
-	"github.com/zdnscloud/gorest/resource"
+	"gorest/resource"
 )
 
 type DaemonSet struct {

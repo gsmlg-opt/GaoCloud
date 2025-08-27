@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/zdnscloud/cement/log"
-	resterr "github.com/zdnscloud/gorest/error"
-	restresource "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/authentication/jwt"
-	"github.com/zdnscloud/singlecloud/pkg/authorization"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"cement/log"
+	resterr "gorest/error"
+	restresource "gorest/resource"
+	"pkg/authentication/jwt"
+	"pkg/authorization"
+	"pkg/types"
 )
 
 type UserManager struct {

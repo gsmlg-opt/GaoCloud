@@ -8,12 +8,12 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	k8stypes "k8s.io/apimachinery/pkg/types"
 
-	"github.com/zdnscloud/cement/slice"
-	"github.com/zdnscloud/gok8s/client"
-	storagev1 "github.com/zdnscloud/immense/pkg/apis/zcloud/v1"
-	"github.com/zdnscloud/immense/pkg/common"
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/pkg/zke"
+	"cement/slice"
+	"gok8s/client"
+	storagev1 "immense/pkg/apis/zcloud/v1"
+	"immense/pkg/common"
+	"pkg/types"
+	"pkg/zke"
 )
 
 const (

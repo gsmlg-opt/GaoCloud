@@ -7,30 +7,30 @@ import (
 	"sync"
 	"time"
 
-	"github.com/zdnscloud/cement/log"
-	resterr "github.com/zdnscloud/gorest/error"
-	restsource "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/zke/core"
-	"github.com/zdnscloud/zke/core/pki"
+	"cement/log"
+	resterr "gorest/error"
+	restsource "gorest/resource"
+	"kvzoo"
+	"zke/core"
+	"zke/core/pki"
 
-	"github.com/zdnscloud/singlecloud/pkg/db"
-	"github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/pkg/zke/zkelog"
+	"pkg/db"
+	"pkg/eventbus"
+	"pkg/types"
+	"pkg/zke/zkelog"
 )
 
 const (
 	alarmEventBufferCount = 10
 )
 
-var singleCloudVersion string
+var gaoCloudVersion string
 
 type ZKEManager struct {
 	clusters     []*Cluster
 	dbTable      kvzoo.Table
 	lock         sync.Mutex
-	scVersion    string       // add cluster singlecloud version for easy to confirm zcloud component version
+	scVersion    string       // add cluster gaocloud version for easy to confirm zcloud component version
 	nodeListener NodeListener // for check storage node
 	logger       *zkelog.LogManager
 }
@@ -53,7 +53,7 @@ func newZKEManager(db kvzoo.DB, nl NodeListener) (*ZKEManager, error) {
 	mgr := &ZKEManager{
 		clusters:     make([]*Cluster, 0),
 		dbTable:      table,
-		scVersion:    singleCloudVersion,
+		scVersion:    gaoCloudVersion,
 		nodeListener: nl,
 		logger:       zkelog.New(),
 	}

@@ -3,10 +3,10 @@ package handler
 import (
 	"fmt"
 
-	resterror "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
-	ca "github.com/zdnscloud/singlecloud/pkg/clusteragent"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	resterror "gorest/error"
+	"gorest/resource"
+	ca "pkg/clusteragent"
+	"pkg/types"
 )
 
 type NodeNetworkManager struct {

@@ -3,11 +3,11 @@ package handler
 import (
 	"fmt"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"pkg/types"
 
-	resterr "github.com/zdnscloud/gorest/error"
-	restresource "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/zke/core/pki"
+	resterr "gorest/error"
+	restresource "gorest/resource"
+	"zke/core/pki"
 )
 
 type KubeConfigManager struct {

@@ -3,8 +3,8 @@ package eventbus
 import (
 	"fmt"
 
-	"github.com/zdnscloud/cement/pubsub"
-	"github.com/zdnscloud/gorest/resource"
+	"cement/pubsub"
+	"gorest/resource"
 )
 
 const EventBufLen = 1000

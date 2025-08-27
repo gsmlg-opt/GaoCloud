@@ -15,10 +15,10 @@ import (
 	apiresource "k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/gok8s/client"
-	resttypes "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"cement/log"
+	"gok8s/client"
+	resttypes "gorest/resource"
+	"pkg/types"
 )
 
 var FilesystemVolumeMode = corev1.PersistentVolumeFilesystem

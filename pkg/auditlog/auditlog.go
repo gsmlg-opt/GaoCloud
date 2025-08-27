@@ -7,14 +7,14 @@ import (
 	"sort"
 	"time"
 
-	"github.com/zdnscloud/gorest"
-	resterr "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
+	"gorest"
+	resterr "gorest/error"
+	"gorest/resource"
 
-	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/auditlog/storage"
-	"github.com/zdnscloud/singlecloud/pkg/db"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"kvzoo"
+	"pkg/auditlog/storage"
+	"pkg/db"
+	"pkg/types"
 )
 
 const (

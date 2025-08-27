@@ -1,8 +1,8 @@
 package alarm
 
 import (
-	eb "github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	eb "pkg/eventbus"
+	"pkg/types"
 )
 
 func subscribeAlarmEvent(cache *AlarmCache, stop chan struct{}) {

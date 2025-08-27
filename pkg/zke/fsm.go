@@ -3,12 +3,12 @@ package zke
 import (
 	"fmt"
 
-	"github.com/zdnscloud/singlecloud/pkg/alarm"
-	"github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"pkg/alarm"
+	"pkg/eventbus"
+	"pkg/types"
 
-	"github.com/zdnscloud/cement/fsm"
-	"github.com/zdnscloud/cement/log"
+	"cement/fsm"
+	"cement/log"
 )
 
 const (

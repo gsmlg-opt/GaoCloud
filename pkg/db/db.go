@@ -5,16 +5,16 @@ import (
 	"fmt"
 	"path"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/kvzoo/client"
-	"github.com/zdnscloud/kvzoo/server"
+	"cement/log"
+	"kvzoo"
+	"kvzoo/client"
+	"kvzoo/server"
 
-	"github.com/zdnscloud/singlecloud/config"
+	"config"
 )
 
 const (
-	DBFileName     = "singlecloud.db"
+	DBFileName     = "gaocloud.db"
 	DBVersionTable = "version"
 	DBVersion      = "v1.0"
 )
@@ -29,7 +29,7 @@ func GetGlobalDB() kvzoo.DB {
     return globalDB
 }
 
-func RunAsMaster(conf *config.SinglecloudConf, stopCh chan struct{}) error {
+func RunAsMaster(conf *config.GaoCloudConf, stopCh chan struct{}) error {
 	dbServerAddr := fmt.Sprintf(":%d", conf.DB.Port)
 	db, err := server.NewWithBoltDB(dbServerAddr, path.Join(conf.DB.Path, DBFileName))
 	if err != nil {
@@ -114,7 +114,7 @@ func checkDBVersion(db kvzoo.DB) error {
 	return nil
 }
 
-func RunAsSlave(conf *config.SinglecloudConf) {
+func RunAsSlave(conf *config.GaoCloudConf) {
 	dbServerAddr := fmt.Sprintf(":%d", conf.DB.Port)
 	db, err := server.NewWithBoltDB(dbServerAddr, path.Join(conf.DB.Path, DBFileName))
 	if err != nil {

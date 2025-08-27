@@ -3,8 +3,8 @@ package eventbus
 import (
 	"testing"
 
-	ut "github.com/zdnscloud/cement/unittest"
-	"github.com/zdnscloud/gorest/resource"
+	ut "cement/unittest"
+	"gorest/resource"
 )
 
 type MyResource struct {

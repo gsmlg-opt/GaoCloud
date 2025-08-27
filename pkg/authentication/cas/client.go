@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"path"
 
-	"github.com/zdnscloud/singlecloud/pkg/authentication/session"
+	"pkg/authentication/session"
 )
 
 const (

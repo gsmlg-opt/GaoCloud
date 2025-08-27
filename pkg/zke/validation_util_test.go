@@ -3,8 +3,8 @@ package zke
 import (
 	"testing"
 
-	ut "github.com/zdnscloud/cement/unittest"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	ut "cement/unittest"
+	"pkg/types"
 )
 
 func TestIsNodeRolesChanage(t *testing.T) {

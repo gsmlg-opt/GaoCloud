@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/zdnscloud/kvzoo"
+	"kvzoo"
 
-	"github.com/zdnscloud/zke/core"
-	"github.com/zdnscloud/zke/core/pki"
-	"github.com/zdnscloud/zke/types"
+	"zke/core"
+	"zke/core/pki"
+	"zke/types"
 )
 
 const (

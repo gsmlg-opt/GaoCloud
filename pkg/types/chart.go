@@ -1,8 +1,8 @@
 package types
 
 import (
-	"github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/charts"
+	"gorest/resource"
+	"pkg/charts"
 )
 
 type Chart struct {

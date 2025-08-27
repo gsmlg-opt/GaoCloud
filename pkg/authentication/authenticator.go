@@ -3,10 +3,10 @@ package authentication
 import (
 	"net/http"
 
-	resterr "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/singlecloud/pkg/authentication/cas"
-	"github.com/zdnscloud/singlecloud/pkg/authentication/jwt"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	resterr "gorest/error"
+	"pkg/authentication/cas"
+	"pkg/authentication/jwt"
+	"pkg/types"
 )
 
 type Authenticator struct {

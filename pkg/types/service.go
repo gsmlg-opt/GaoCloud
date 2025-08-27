@@ -3,7 +3,7 @@ package types
 import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 
-	"github.com/zdnscloud/gorest/resource"
+	"gorest/resource"
 )
 
 const (

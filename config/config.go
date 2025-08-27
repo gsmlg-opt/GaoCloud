@@ -3,8 +3,8 @@ package config
 import (
 	"errors"
 
-	"github.com/zdnscloud/cement/configure"
-	"github.com/zdnscloud/cement/log"
+	"cement/configure"
+	"cement/log"
 )
 
 type DBRole string
@@ -14,7 +14,7 @@ const (
 	Slave  DBRole = "slave"
 )
 
-type SinglecloudConf struct {
+type GaoCloudConf struct {
 	Path     string         `yaml:"-"`
 	Server   ServerConf     `yaml:"server"`
 	DB       DBConf         `yaml:"db"`
@@ -48,8 +48,8 @@ type RegistryCAConf struct {
 	CaKeyPath  string `yaml:"ca_key_path"`
 }
 
-func CreateDefaultConfig() SinglecloudConf {
-	return SinglecloudConf{
+func CreateDefaultConfig() GaoCloudConf {
+	return GaoCloudConf{
 		Server: ServerConf{
 			Addr: ":80",
 		},
@@ -60,8 +60,8 @@ func CreateDefaultConfig() SinglecloudConf {
 	}
 }
 
-func LoadConfig(path string) (*SinglecloudConf, error) {
-	var conf SinglecloudConf
+func LoadConfig(path string) (*GaoCloudConf, error) {
+	var conf GaoCloudConf
 	conf.Path = path
 	if err := conf.Reload(); err != nil {
 		return nil, err
@@ -72,7 +72,7 @@ func LoadConfig(path string) (*SinglecloudConf, error) {
 	return &conf, nil
 }
 
-func (c *SinglecloudConf) Reload() error {
+func (c *GaoCloudConf) Reload() error {
 	newConf := CreateDefaultConfig()
 	if err := configure.Load(&newConf, c.Path); err != nil {
 		return err
@@ -83,7 +83,7 @@ func (c *SinglecloudConf) Reload() error {
 	return nil
 }
 
-func (c *SinglecloudConf) Verify() error {
+func (c *GaoCloudConf) Verify() error {
 	if c.DB.Role != Master && c.DB.Role != Slave {
 		return errors.New("db role can only as master or slave")
 	}

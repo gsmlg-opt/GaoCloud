@@ -14,7 +14,7 @@ import (
 )
 
 var (
-	path = flag.String("path", "", "singlecloud websocket path")
+	path = flag.String("path", "", "gaocloud websocket path")
 )
 
 func main() {

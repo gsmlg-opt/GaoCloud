@@ -8,11 +8,11 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"pkg/types"
 
 	tektonv1 "github.com/tektoncd/pipeline/pkg/apis/pipeline/v1alpha1"
-	"github.com/zdnscloud/cement/randomdata"
-	"github.com/zdnscloud/gok8s/client"
+	"cement/randomdata"
+	"gok8s/client"
 	corev1 "k8s.io/api/core/v1"
 	rbacv1 "k8s.io/api/rbac/v1"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"

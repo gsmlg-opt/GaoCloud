@@ -12,12 +12,12 @@ import (
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	apiresource "k8s.io/apimachinery/pkg/api/resource"
 
-	"github.com/zdnscloud/gok8s/client"
-	resterror "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/db"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"gok8s/client"
+	resterror "gorest/error"
+	"gorest/resource"
+	"kvzoo"
+	"pkg/db"
+	"pkg/types"
 )
 
 const UserQuotaTable = "userquota"

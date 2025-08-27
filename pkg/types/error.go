@@ -1,7 +1,7 @@
 package types
 
 import (
-	resterror "github.com/zdnscloud/gorest/error"
+	resterror "gorest/error"
 )
 
 var (

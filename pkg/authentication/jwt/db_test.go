@@ -4,11 +4,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/zdnscloud/kvzoo"
-	ut "github.com/zdnscloud/cement/unittest"
-	"github.com/zdnscloud/kvzoo/backend/bolt"
-	"github.com/zdnscloud/singlecloud/pkg/authentication/session"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"kvzoo"
+	ut "cement/unittest"
+	"kvzoo/backend/bolt"
+	"pkg/authentication/session"
+	"pkg/types"
 )
 
 func newAuthenticator(db kvzoo.DB) (*Authenticator, error) {

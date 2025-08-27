@@ -7,11 +7,11 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	k8stypes "k8s.io/apimachinery/pkg/types"
 
-	"github.com/zdnscloud/gok8s/client"
-	resterr "github.com/zdnscloud/gorest/error"
-	resource "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/clusteragent"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"gok8s/client"
+	resterr "gorest/error"
+	resource "gorest/resource"
+	"pkg/clusteragent"
+	"pkg/types"
 )
 
 type BlockDeviceManager struct {

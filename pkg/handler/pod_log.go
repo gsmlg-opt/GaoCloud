@@ -6,12 +6,12 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/zdnscloud/singlecloud/pkg/zke"
+	"pkg/zke"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/client-go/kubernetes/scheme"
 
 	"github.com/gorilla/websocket"
-	"github.com/zdnscloud/cement/log"
+	"cement/log"
 )
 
 var (

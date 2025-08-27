@@ -3,8 +3,8 @@ package zke
 import (
 	"testing"
 
-	ut "github.com/zdnscloud/cement/unittest"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	ut "cement/unittest"
+	"pkg/types"
 )
 
 func TestValidateDuplicateNodeName(t *testing.T) {
@@ -139,7 +139,7 @@ func TestValidateNodeNameRolesAndAddress(t *testing.T) {
 	ut.NotEqual(t, validateNodeNameRoleAndAddress(c3), nil)
 }
 
-func TestValidateScAddress(t *testing.T) {
+func TestValidateGaoCloudAddress(t *testing.T) {
 	n1 := types.Node{
 		Name:    "master",
 		Address: "192.168.1.1",
@@ -154,10 +154,10 @@ func TestValidateScAddress(t *testing.T) {
 
 	c := &types.Cluster{
 		Nodes:              []types.Node{n1, n2},
-		SingleCloudAddress: "192.168.1.1:8088",
+		GaoCloudAddress: "192.168.1.1:8088",
 	}
 
-	ut.NotEqual(t, validateScAddress(c), nil)
+	ut.NotEqual(t, validateGaoCloudAddress(c), nil)
 }
 
 func TestValidateCannotDeleteNode(t *testing.T) {
