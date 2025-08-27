@@ -7,15 +7,15 @@ import (
 
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 
-	"github.com/zdnscloud/cement/log"
-	resterr "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
-	restresource "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/kvzoo"
-	"github.com/gsmlg-opt/gaocloud/pkg/alarm"
-	"github.com/gsmlg-opt/gaocloud/pkg/db"
-	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"cement/log"
+	resterr "gorest/error"
+	"gorest/resource"
+	restresource "gorest/resource"
+	"kvzoo"
+	"pkg/alarm"
+	"pkg/db"
+	eb "pkg/eventbus"
+	"pkg/types"
 )
 
 const (

@@ -3,10 +3,10 @@ package authentication
 import (
 	"net/http"
 
-	resterr "github.com/zdnscloud/gorest/error"
-	"github.com/gsmlg-opt/gaocloud/pkg/authentication/cas"
-	"github.com/gsmlg-opt/gaocloud/pkg/authentication/jwt"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	resterr "gorest/error"
+	"pkg/authentication/cas"
+	"pkg/authentication/jwt"
+	"pkg/types"
 )
 
 type Authenticator struct {

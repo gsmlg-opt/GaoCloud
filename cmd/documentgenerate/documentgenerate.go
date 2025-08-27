@@ -12,7 +12,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"pkg/types"
 )
 
 const goTemp = `
@@ -21,9 +21,9 @@ package main
 import (
         "log"   
                         
-        "github.com/zdnscloud/gorest/resource/schema"
-        "github.com/gsmlg-opt/gaocloud/pkg/handler"
-        "github.com/gsmlg-opt/gaocloud/pkg/types"
+        "gorest/resource/schema"
+        "pkg/handler"
+        "pkg/types"
 )                                       
 
 func main() {                                                                           

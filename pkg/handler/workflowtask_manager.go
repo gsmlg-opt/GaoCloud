@@ -9,13 +9,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"pkg/types"
 
 	tektonv1alpha1 "github.com/tektoncd/pipeline/pkg/apis/pipeline/v1alpha1"
 	tektonv1alpha2 "github.com/tektoncd/pipeline/pkg/apis/pipeline/v1alpha2"
-	"github.com/zdnscloud/gok8s/client"
-	resterror "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
+	"gok8s/client"
+	resterror "gorest/error"
+	"gorest/resource"
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"

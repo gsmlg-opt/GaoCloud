@@ -9,10 +9,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/cement/slice"
-	"github.com/zdnscloud/kvzoo"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"cement/log"
+	"cement/slice"
+	"kvzoo"
+	"pkg/types"
 )
 
 const (

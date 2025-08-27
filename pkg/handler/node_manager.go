@@ -12,11 +12,11 @@ import (
 	k8stypes "k8s.io/apimachinery/pkg/types"
 	metricsapi "k8s.io/metrics/pkg/apis/metrics"
 
-	"github.com/zdnscloud/gok8s/client"
-	"github.com/zdnscloud/gok8s/helper"
-	resterr "github.com/zdnscloud/gorest/error"
-	restresource "github.com/zdnscloud/gorest/resource"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"gok8s/client"
+	"gok8s/helper"
+	resterr "gorest/error"
+	restresource "gorest/resource"
+	"pkg/types"
 )
 
 const (

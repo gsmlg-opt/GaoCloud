@@ -3,9 +3,9 @@ package handler
 import (
 	"testing"
 
-	ut "github.com/zdnscloud/cement/unittest"
+	ut "cement/unittest"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"pkg/types"
 )
 
 func TestIngressRuleValidate(t *testing.T) {

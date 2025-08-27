@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"pkg/types"
 
-	"github.com/zdnscloud/kvzoo"
+	"kvzoo"
 )
 
 type StorageDriver interface {

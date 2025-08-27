@@ -9,15 +9,15 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes/scheme"
 
-	"github.com/zdnscloud/gok8s/cache"
-	"github.com/zdnscloud/gok8s/client"
-	"github.com/zdnscloud/gok8s/controller"
-	"github.com/zdnscloud/gok8s/event"
-	"github.com/zdnscloud/gok8s/handler"
-	"github.com/zdnscloud/gok8s/predicate"
+	"gok8s/cache"
+	"gok8s/client"
+	"gok8s/controller"
+	"gok8s/event"
+	"gok8s/handler"
+	"gok8s/predicate"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/g53"
+	"cement/log"
+	"g53"
 )
 
 const (

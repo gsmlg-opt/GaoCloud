@@ -5,11 +5,11 @@ import (
 	"testing"
 	"time"
 
-	ut "github.com/zdnscloud/cement/unittest"
-	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/kvzoo/backend/bolt"
-	"github.com/zdnscloud/zke/core"
-	zketypes "github.com/zdnscloud/zke/types"
+	ut "cement/unittest"
+	"kvzoo"
+	"kvzoo/backend/bolt"
+	"zke/core"
+	zketypes "zke/types"
 )
 
 func TestClusterDB(t *testing.T) {

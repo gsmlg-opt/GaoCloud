@@ -3,9 +3,9 @@ package k8seventwatcher
 import (
 	"sync"
 
-	"github.com/zdnscloud/cement/log"
-	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"cement/log"
+	eb "pkg/eventbus"
+	"pkg/types"
 )
 
 const MaxEventCount = 4096

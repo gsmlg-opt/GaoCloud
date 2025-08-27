@@ -8,10 +8,10 @@ import (
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	k8stypes "k8s.io/apimachinery/pkg/types"
 
-	"github.com/zdnscloud/gok8s/client"
-	resterr "github.com/zdnscloud/gorest/error"
-	restresource "github.com/zdnscloud/gorest/resource"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"gok8s/client"
+	resterr "gorest/error"
+	restresource "gorest/resource"
+	"pkg/types"
 )
 
 type StorageClassManager struct {

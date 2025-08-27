@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"pkg/types"
 
-	"github.com/zdnscloud/cement/set"
+	"cement/set"
 )
 
 type createValidator func(c *types.Cluster) error
@@ -17,7 +17,7 @@ var createValidators = []createValidator{
 	validateDuplicateNodes,
 	validateNodeCount,
 	validateNodeNameRoleAndAddress,
-	validateScAddress,
+	validateGaoCloudAddress,
 	validateLBConfig,
 }
 
@@ -155,14 +155,14 @@ func validateCannotDeleteNode(oldCluster, newCluster *types.Cluster) error {
 	return nil
 }
 
-func validateScAddress(c *types.Cluster) error {
-	if !isIPv4Host(c.SingleCloudAddress) {
-		return fmt.Errorf("singlecloud address must be an ipv4 host such as 10.10.10.10:8000")
+func validateGaoCloudAddress(c *types.Cluster) error {
+	if !isIPv4Host(c.GaoCloudAddress) {
+		return fmt.Errorf("gaocloud address must be an ipv4 host such as 10.10.10.10:8000")
 	}
-	scIp := strings.Split(c.SingleCloudAddress, ":")[0]
+	scIp := strings.Split(c.GaoCloudAddress, ":")[0]
 	for _, n := range c.Nodes {
 		if n.Address == scIp {
-			return fmt.Errorf("singlecloud server %s cant't be an node", n.Address)
+			return fmt.Errorf("gaocloud server %s can't be an node", n.Address)
 		}
 	}
 	return nil

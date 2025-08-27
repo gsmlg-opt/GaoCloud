@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/zdnscloud/goproxy"
+	"goproxy"
 )
 
 const (

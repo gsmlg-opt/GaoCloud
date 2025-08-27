@@ -9,13 +9,13 @@ import (
 
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 
-	appv1beta1 "github.com/zdnscloud/application-operator/pkg/apis/app/v1beta1"
-	"github.com/zdnscloud/gok8s/client"
-	resterr "github.com/zdnscloud/gorest/error"
-	restresource "github.com/zdnscloud/gorest/resource"
-	"github.com/gsmlg-opt/gaocloud/pkg/charts"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
-	"github.com/gsmlg-opt/gaocloud/pkg/zke"
+	appv1beta1 "application-operator/pkg/apis/app/v1beta1"
+	"gok8s/client"
+	resterr "gorest/error"
+	restresource "gorest/resource"
+	"pkg/charts"
+	"pkg/types"
+	"pkg/zke"
 )
 
 const (

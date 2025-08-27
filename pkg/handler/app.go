@@ -5,17 +5,17 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/zdnscloud/gorest"
-	"github.com/zdnscloud/gorest/adaptor"
-	restresource "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/gorest/resource/schema"
-	"github.com/gsmlg-opt/gaocloud/config"
-	"github.com/gsmlg-opt/gaocloud/pkg/alarm"
-	"github.com/gsmlg-opt/gaocloud/pkg/auditlog"
-	"github.com/gsmlg-opt/gaocloud/pkg/authentication"
-	"github.com/gsmlg-opt/gaocloud/pkg/authorization"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
-	"github.com/gsmlg-opt/gaocloud/pkg/zke/zkelog"
+	"github.com/gsmlg-opt/GaoCloud/gorest"
+	"github.com/gsmlg-opt/GaoCloud/gorest/adaptor"
+	restresource "github.com/gsmlg-opt/GaoCloud/gorest/resource"
+	"github.com/gsmlg-opt/GaoCloud/gorest/resource/schema"
+	"github.com/gsmlg-opt/GaoCloud/config"
+	"github.com/gsmlg-opt/GaoCloud/pkg/alarm"
+	"github.com/gsmlg-opt/GaoCloud/pkg/auditlog"
+	"github.com/gsmlg-opt/GaoCloud/pkg/authentication"
+	"github.com/gsmlg-opt/GaoCloud/pkg/authorization"
+	"github.com/gsmlg-opt/GaoCloud/pkg/types"
+	"github.com/gsmlg-opt/GaoCloud/pkg/zke/zkelog"
 )
 
 var (
@@ -27,10 +27,10 @@ var (
 
 type App struct {
 	clusterManager *ClusterManager
-	conf           *config.SinglecloudConf
+	conf           *config.GaoCloudConf
 }
 
-func NewApp(authenticator *authentication.Authenticator, authorizer *authorization.Authorizer, conf *config.SinglecloudConf) (*App, error) {
+func NewApp(authenticator *authentication.Authenticator, authorizer *authorization.Authorizer, conf *config.GaoCloudConf) (*App, error) {
 	clusterMgr, err := newClusterManager(authenticator, authorizer)
 	if err != nil {
 		return nil, err

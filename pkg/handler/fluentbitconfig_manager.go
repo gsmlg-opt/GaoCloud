@@ -12,14 +12,14 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/cement/slice"
-	"github.com/zdnscloud/gok8s/client"
-	resterr "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/iniconfig"
-	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"cement/log"
+	"cement/slice"
+	"gok8s/client"
+	resterr "gorest/error"
+	"gorest/resource"
+	"iniconfig"
+	eb "pkg/eventbus"
+	"pkg/types"
 )
 
 const (

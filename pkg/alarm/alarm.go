@@ -3,9 +3,9 @@ package alarm
 import (
 	"time"
 
-	"github.com/zdnscloud/gorest/resource"
-	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"gorest/resource"
+	eb "pkg/eventbus"
+	"pkg/types"
 )
 
 type AlarmEvent struct {

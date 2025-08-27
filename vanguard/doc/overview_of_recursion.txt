@@ -1,0 +1,22 @@
+递归概述
+
+初始准备：
+1. 读取一个DNS包并检查它的一般有效性, question的个数为1, 含有RD位。如果它不是有效的DNS请求，请退出。
+2. 为响应消息分配空间并将查询问题复制进去, 设置RA位。
+
+LOOKUP:
+1. 在QNAME / QCLASS / QTYPE或QNAME / QCLASS / CNAME(vanguard中为QNAME/VIEW/QTYPE)中搜索完全匹配的缓存。如果找到(仍在TTL时间范围内)，将其添加到answer中, 如果找到的rrset是CNAME，但QTYPE不是，则将QNAME更改为CNAME并转到LOOKUP。
+2. 如果我们现在有一个完整的answer，进入ANSWER。
+3. 检查权威数据源中的数据是否包含授权区信息。如果没有，抑或如果有但是授权不是到QNAME的直接父区，则在高速缓存中搜索匹配更接近的NS rrset。如果没有找到，请使用根服务器查询，获得一个新的根NS RRset。
+
+RESQUERY：
+对于NS rrset中的每个我们需要委派查询的名称服务器，设置一个地址列表。通过地址轮询，发送QNAME / QCLASS / QTYPE的DNS查询(使用随机srcport和txid，并跟踪它们)。发出查询并退出(将在收到响应数据包后恢复处理)。
+
+RESUME:
+我们收到一个完成的回应后, 如果我们有一个完整的answer，进入ANSWER。如果我们有一个包含不完整CNAME链的answer，请将QNAME重置为TARGET并转到LOOKUP。如果响应中包含委派，请转到DELEGATION。
+
+DELEGATION:
+如果答案包含授权区信息，则验证并缓存它。缓存NS和地址数据作为glue。切换到授权的名称服务器，然后返回RESQUERY。
+
+ANSWER:
+获取到的answer数据中所有RR缓存并把glue记录缓存在较低信任级别。返回wire format的answer, 如果answer是不完整的, 就将不完整的answer返回。然后将answer返回并发送到客户端，然后退出。

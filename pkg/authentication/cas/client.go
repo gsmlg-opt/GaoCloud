@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"path"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/authentication/session"
+	"pkg/authentication/session"
 )
 
 const (

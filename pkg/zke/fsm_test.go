@@ -4,10 +4,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"pkg/types"
 
-	ut "github.com/zdnscloud/cement/unittest"
-	"github.com/zdnscloud/kvzoo/backend/bolt"
+	ut "cement/unittest"
+	"kvzoo/backend/bolt"
 )
 
 const (

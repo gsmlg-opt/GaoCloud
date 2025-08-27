@@ -12,9 +12,9 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 
-	"github.com/zdnscloud/cement/set"
-	"github.com/zdnscloud/gok8s/client"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"cement/set"
+	"gok8s/client"
+	"pkg/types"
 )
 
 func createServiceAccount(cli client.Client, name, namespace string) error {

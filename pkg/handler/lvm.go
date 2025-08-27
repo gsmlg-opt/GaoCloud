@@ -9,14 +9,14 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	k8stypes "k8s.io/apimachinery/pkg/types"
 
-	"github.com/zdnscloud/cement/set"
-	"github.com/zdnscloud/cement/slice"
-	"github.com/zdnscloud/gok8s/client"
-	storagev1 "github.com/zdnscloud/immense/pkg/apis/zcloud/v1"
-	"github.com/zdnscloud/immense/pkg/common"
-	"github.com/gsmlg-opt/gaocloud/pkg/clusteragent"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
-	"github.com/gsmlg-opt/gaocloud/pkg/zke"
+	"cement/set"
+	"cement/slice"
+	"gok8s/client"
+	storagev1 "immense/pkg/apis/zcloud/v1"
+	"immense/pkg/common"
+	"pkg/clusteragent"
+	"pkg/types"
+	"pkg/zke"
 )
 
 const (

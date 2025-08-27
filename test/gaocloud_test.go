@@ -13,10 +13,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/cement/pubsub"
-	ut "github.com/zdnscloud/cement/unittest"
-	zkecore "github.com/zdnscloud/zke/core"
+	"github.com/gsmlg-opt/GaoCloud/cement/log"
+	"github.com/gsmlg-opt/GaoCloud/cement/pubsub"
+	ut "github.com/gsmlg-opt/GaoCloud/cement/unittest"
+	zkecore "github.com/gsmlg-opt/GaoCloud/zke/core"
 
 	"github.com/gsmlg-opt/gaocloud/pkg/authentication"
 	"github.com/gsmlg-opt/gaocloud/pkg/authorization"
@@ -25,7 +25,7 @@ import (
 	"github.com/gsmlg-opt/gaocloud/pkg/handler"
 	"github.com/gsmlg-opt/gaocloud/pkg/types"
 	"github.com/gsmlg-opt/gaocloud/server"
-	storage "github.com/zdnscloud/kvzoo/backend/bolt"
+	storage "github.com/gsmlg-opt/GaoCloud/kvzoo/backend/bolt"
 )
 
 var (
@@ -159,7 +159,7 @@ func login(loginResource *TestLogin) error {
 	return nil
 }
 
-func TestRunSingleCloud(t *testing.T) {
+func TestRunGaoCloud(t *testing.T) {
 	go runTestServer()
 	time.Sleep(1 * time.Second)
 }
@@ -477,7 +477,7 @@ func testGetStorageClass(t *testing.T) {
 }
 
 func TestDeleteResource(t *testing.T) {
-	defer os.Remove("singlecloud.db")
+	defer os.Remove("gaocloud.db")
 	deleteResourceFiles := []string{"deployment.json", "statefulset.json", "configmap.json", "secret.json", "job.json", "cronjob.json", "limitrange.json", "resourcequota.json", "user.json", "namespace.json", "cluster.json"}
 
 	for _, resourceFile := range deleteResourceFiles {

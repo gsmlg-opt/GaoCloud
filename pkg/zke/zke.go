@@ -3,23 +3,23 @@ package zke
 import (
 	"context"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"pkg/types"
 
 	tektonv1alpha1 "github.com/tektoncd/pipeline/pkg/apis/pipeline/v1alpha1"
-	appv1beta1 "github.com/zdnscloud/application-operator/pkg/apis/app/v1beta1"
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/gok8s/client"
-	gok8sconfig "github.com/zdnscloud/gok8s/client/config"
-	storagev1 "github.com/zdnscloud/immense/pkg/apis/zcloud/v1"
-	zkecmd "github.com/zdnscloud/zke/cmd"
-	"github.com/zdnscloud/zke/core"
-	"github.com/zdnscloud/zke/core/pki"
-	zketypes "github.com/zdnscloud/zke/types"
+	appv1beta1 "application-operator/pkg/apis/app/v1beta1"
+	"cement/log"
+	"gok8s/client"
+	gok8sconfig "gok8s/client/config"
+	storagev1 "immense/pkg/apis/zcloud/v1"
+	zkecmd "zke/cmd"
+	"zke/core"
+	"zke/core/pki"
+	zketypes "zke/types"
 	"k8s.io/client-go/rest"
 )
 
 func upZKECluster(ctx context.Context, config *zketypes.ZKEConfig, state *core.FullState, logger log.Logger) (*core.FullState, *rest.Config, client.Client, error) {
-	newState, err := zkecmd.ClusterUpFromSingleCloud(ctx, config, state, logger)
+	newState, err := zkecmd.ClusterUpFromGaoCloud(ctx, config, state, logger)
 	if err != nil {
 		return newState, nil, nil, err
 	}
@@ -44,7 +44,7 @@ func upZKECluster(ctx context.Context, config *zketypes.ZKEConfig, state *core.F
 }
 
 func removeZKECluster(ctx context.Context, config *zketypes.ZKEConfig, logger log.Logger) error {
-	return zkecmd.ClusterRemoveFromSingleCloud(ctx, config, logger)
+	return zkecmd.ClusterRemoveFromGaoCloud(ctx, config, logger)
 }
 
 func genZKEConfig(cluster *types.Cluster) *zketypes.ZKEConfig {
@@ -64,7 +64,7 @@ func genZKEConfig(cluster *types.Cluster) *zketypes.ZKEConfig {
 			Plugin: cluster.Network.Plugin,
 			Iface:  cluster.Network.Iface,
 		},
-		SingleCloudAddress: cluster.SingleCloudAddress,
+		GaoCloudAddress: cluster.GaoCloudAddress,
 	}
 
 	config.Nodes = scClusterToZKENodes(cluster)
@@ -85,7 +85,7 @@ func genZKEConfigForUpdate(config *zketypes.ZKEConfig, sc *types.Cluster) *zkety
 	if sc.SSHKey != "" {
 		newConfig.Option.SSHKey = sc.SSHKey
 	}
-	newConfig.SingleCloudAddress = sc.SingleCloudAddress
+	newConfig.GaoCloudAddress = sc.GaoCloudAddress
 	newConfig.Nodes = scClusterToZKENodes(sc)
 	return newConfig
 }

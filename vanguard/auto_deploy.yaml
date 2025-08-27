@@ -1,0 +1,107 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+    name: vanguard-cfg
+    labels:
+        app: vanguard
+data:
+    vanguard.conf: |
+        server:
+            addr: 
+            - 0.0.0.0:53
+            http_cmd_addr: 0.0.0.0:9000
+            handler_count: 512 
+            enable_tcp: false
+
+        enable_modules:
+        - query_log
+        - view
+        - cache
+        - forwarder
+        - recursor
+
+        logger:
+            query_log: 
+                enable: true
+                qlog_extension: true
+            general_log:
+                enable: false
+
+        cache: 
+            enable: true
+            short_answer: true
+            prefetch: false
+
+        forwarder:
+            forward_zone_for_view:
+            - view: "default"
+              zones:
+              - name: "cn"
+                forward_style: "rtt"
+                forwarders:
+                - 114.114.114.114:53
+
+        recursor:
+        - view: default
+          enable: true
+
+        resolver:
+          check_cname_indirect: false
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: vanguard
+  labels:
+    app: user-dns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: user-dns
+  template:
+    metadata:
+      labels:
+        app: user-dns
+    spec:
+      containers:
+      - name: vanguard
+        image: zdnscloud/vanguard:v0.1
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+            httpGet:
+                path: /health
+                port: 9000
+            initialDelaySeconds: 5
+            timeoutSeconds: 2
+            periodSeconds: 15
+            failureThreshold: 2
+        ports:
+        - containerPort: 53
+          name: dns-port
+          protocol: UDP
+        - containerPort: 9000
+          name: cmd-port
+          protocol: TCP
+        volumeMounts:
+        - name: vanguard-cfg
+          mountPath: /etc/vanguard
+      volumes:
+      - name: vanguard-cfg
+        configMap:
+            name: vanguard-cfg
+---            
+apiVersion: v1
+kind: Service
+metadata:
+  name: vanguard 
+  labels:
+    app: vanguard
+spec:
+  selector:
+    app: user-dns
+  ports:
+  - port: 53
+    targetPort: 53
+    protocol: UDP

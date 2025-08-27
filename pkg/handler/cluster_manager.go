@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/zdnscloud/cement/slice"
-	"github.com/zdnscloud/gorest"
-	resterr "github.com/zdnscloud/gorest/error"
-	restresource "github.com/zdnscloud/gorest/resource"
-	"github.com/gsmlg-opt/gaocloud/pkg/authentication"
-	"github.com/gsmlg-opt/gaocloud/pkg/authorization"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
-	"github.com/gsmlg-opt/gaocloud/pkg/zke"
+	"cement/slice"
+	"gorest"
+	resterr "gorest/error"
+	restresource "gorest/resource"
+	"pkg/authentication"
+	"pkg/authorization"
+	"pkg/types"
+	"pkg/zke"
 
-	"github.com/zdnscloud/cement/log"
+	"cement/log"
 )
 
 const (

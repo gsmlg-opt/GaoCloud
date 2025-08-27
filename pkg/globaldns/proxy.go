@@ -5,11 +5,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/zdnscloud/g53"
-	"github.com/zdnscloud/vanguard/httpcmd"
-	"github.com/zdnscloud/vanguard/resolver/auth"
-	"github.com/zdnscloud/vanguard/server"
-	view "github.com/zdnscloud/vanguard/viewselector"
+	"g53"
+	"vanguard/httpcmd"
+	"vanguard/resolver/auth"
+	"vanguard/server"
+	view "vanguard/viewselector"
 )
 
 const (

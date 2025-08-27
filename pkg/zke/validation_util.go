@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"pkg/types"
 
-	"github.com/zdnscloud/cement/set"
+	"cement/set"
 )
 
 func isNodeRolesChanage(oldNode, newNode types.Node) bool {

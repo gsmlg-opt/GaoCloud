@@ -16,15 +16,15 @@ import (
 	"helm.sh/helm/pkg/chartutil"
 	"helm.sh/helm/pkg/engine"
 
-	appv1beta1 "github.com/zdnscloud/application-operator/pkg/apis/app/v1beta1"
-	"github.com/zdnscloud/cement/slice"
-	"github.com/zdnscloud/gok8s/client"
-	resterror "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
-	restutil "github.com/zdnscloud/gorest/util"
-	"github.com/gsmlg-opt/gaocloud/pkg/charts"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
-	"github.com/gsmlg-opt/gaocloud/pkg/zke"
+	appv1beta1 "application-operator/pkg/apis/app/v1beta1"
+	"cement/slice"
+	"gok8s/client"
+	resterror "gorest/error"
+	"gorest/resource"
+	restutil "gorest/util"
+	"pkg/charts"
+	"pkg/types"
+	"pkg/zke"
 )
 
 var (

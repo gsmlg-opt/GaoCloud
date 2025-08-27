@@ -1,9 +1,9 @@
 package jwt
 
 import (
-	"github.com/zdnscloud/kvzoo"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
-	"github.com/gsmlg-opt/gaocloud/pkg/db"
+	"kvzoo"
+	"pkg/types"
+	"pkg/db"
 )
 
 var (

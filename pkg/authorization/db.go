@@ -3,8 +3,8 @@ package authorization
 import (
 	"encoding/json"
 
-	"github.com/zdnscloud/kvzoo"
-	"github.com/gsmlg-opt/gaocloud/pkg/db"
+	"kvzoo"
+	"pkg/db"
 )
 
 var (

@@ -16,12 +16,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/cement/slice"
-	resterror "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
-	"github.com/gsmlg-opt/gaocloud/pkg/charts"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"cement/log"
+	"cement/slice"
+	resterror "gorest/error"
+	"gorest/resource"
+	"pkg/charts"
+	"pkg/types"
 )
 
 const (

@@ -6,21 +6,21 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/cement/x509"
+	"github.com/gsmlg-opt/GaoCloud/cement/log"
+	"github.com/gsmlg-opt/GaoCloud/cement/x509"
 	"gopkg.in/yaml.v2"
 
-	"github.com/gsmlg-opt/gaocloud/config"
-	"github.com/gsmlg-opt/gaocloud/pkg/alarm"
-	"github.com/gsmlg-opt/gaocloud/pkg/authentication"
-	"github.com/gsmlg-opt/gaocloud/pkg/authorization"
-	"github.com/gsmlg-opt/gaocloud/pkg/clusteragent"
-	"github.com/gsmlg-opt/gaocloud/pkg/db"
-	"github.com/gsmlg-opt/gaocloud/pkg/globaldns"
-	"github.com/gsmlg-opt/gaocloud/pkg/handler"
-	"github.com/gsmlg-opt/gaocloud/pkg/k8seventwatcher"
-	"github.com/gsmlg-opt/gaocloud/pkg/k8sshell"
-	"github.com/gsmlg-opt/gaocloud/server"
+	"github.com/gsmlg-opt/GaoCloud/config"
+	"github.com/gsmlg-opt/GaoCloud/pkg/alarm"
+	"github.com/gsmlg-opt/GaoCloud/pkg/authentication"
+	"github.com/gsmlg-opt/GaoCloud/pkg/authorization"
+	"github.com/gsmlg-opt/GaoCloud/pkg/clusteragent"
+	"github.com/gsmlg-opt/GaoCloud/pkg/db"
+	"github.com/gsmlg-opt/GaoCloud/pkg/globaldns"
+	"github.com/gsmlg-opt/GaoCloud/pkg/handler"
+	"github.com/gsmlg-opt/GaoCloud/pkg/k8seventwatcher"
+	"github.com/gsmlg-opt/GaoCloud/pkg/k8sshell"
+	"github.com/gsmlg-opt/GaoCloud/server"
 )
 
 const (
@@ -68,7 +68,7 @@ func main() {
 	}
 }
 
-func runAsMaster(conf *config.SinglecloudConf) {
+func runAsMaster(conf *config.GaoCloudConf) {
 	stopCh := make(chan struct{})
 	err := db.RunAsMaster(conf, stopCh)
 	if err != nil {
@@ -161,7 +161,7 @@ func createSelfSignedTlsCert() error {
 	return ioutil.WriteFile(defaultTlsKeyFile, []byte(cert.Key), 0644)
 }
 
-func runAsSlave(conf *config.SinglecloudConf) {
+func runAsSlave(conf *config.GaoCloudConf) {
 	db.RunAsSlave(conf)
 }
 

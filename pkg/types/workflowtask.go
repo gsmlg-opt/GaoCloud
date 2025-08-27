@@ -3,7 +3,7 @@ package types
 import (
 	"time"
 
-	"github.com/zdnscloud/gorest/resource"
+	"gorest/resource"
 )
 
 type WorkFlowTaskStatus struct {

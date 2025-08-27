@@ -6,10 +6,10 @@ import (
 	"time"
 	"encoding/json"
 
-	ut "github.com/zdnscloud/cement/unittest"
-	"github.com/zdnscloud/kvzoo/backend/bolt"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
-	"github.com/zdnscloud/kvzoo"
+	ut "cement/unittest"
+	"kvzoo/backend/bolt"
+	"pkg/types"
+	"kvzoo"
 )
 
 func newAuth(db kvzoo.DB)(*Authorizer, error) {

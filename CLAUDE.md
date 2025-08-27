@@ -6,11 +6,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **GaoCloud** is a single-cloud management platform that provides Kubernetes cluster management, application deployment, and infrastructure orchestration capabilities. It's built as a Go-based REST API server with WebSocket support for real-time features like pod logs and terminal access.
 
+## Project History - IMPORTANT RENAME NOTICE
+
+This project was originally named **singlecloud** and has been successfully migrated to **GaoCloud** in August 2025.
+
+### Migration Summary
+- **Original Name**: singlecloud
+- **New Name**: GaoCloud
+- **GitHub Organization**: gsmlg-opt
+- **Go Module**: Changed from `module gaocloud` to `module github.com/gsmlg-opt/GaoCloud`
+- **Binary Name**: Changed from `singlecloud` to `gaocloud`
+- **Configuration File**: Changed from `singlecloud.conf` to `gaocloud.conf`
+- **Database File**: Changed from `singlecloud.db` to `gaocloud.db`
+
 ## Architecture
 
 ### Core Components
 - **API Server**: Gin-based HTTP server with RESTful APIs and WebSocket endpoints
-- **Cluster Management**: Manages multiple Kubernetes clusters via ZKE (ZdnsCloud Kubernetes Engine)
+- **Cluster Management**: Manages multiple Kubernetes clusters via ZKE (Kubernetes Engine)
 - **Resource Management**: Comprehensive Kubernetes resource management (Pods, Deployments, Services, etc.)
 - **Authentication & Authorization**: CAS-based authentication with JWT tokens and role-based access control
 - **Monitoring & Alerting**: Integrated monitoring, metrics collection, and alerting system
@@ -32,7 +45,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Build Commands
 ```bash
-# Build the singlecloud binary
+# Build the gaocloud binary
 make build
 
 # Build Docker image
@@ -61,7 +74,7 @@ make clean-image
 ### Testing
 ```bash
 # Run integration tests
-go test ./test/singlecloud_test.go
+go test ./test/gaocloud_test.go
 
 # Run specific package tests
 go test ./pkg/...
@@ -105,7 +118,7 @@ registry:
 
 ```
 ├── cmd/                    # Application entry points
-│   ├── singlecloud/       # Main server binary
+│   ├── gaocloud/          # Main server binary
 │   ├── getkubeconfig/     # Kubeconfig generation tool
 │   ├── wstool/           # WebSocket testing tool
 │   └── documentgenerate/ # Documentation generator
@@ -200,10 +213,10 @@ schemas.MustImport(&Version, types.NewResource{}, newNewResourceManager(cm))
 ### Configuration Generation
 ```bash
 # Generate initial config
-./singlecloud -gen
+./gaocloud -gen
 
-# Edit singlecloud.conf as needed
-vim singlecloud.conf
+# Edit gaocloud.conf as needed
+vim gaocloud.conf
 ```
 
 ## Debugging
@@ -217,7 +230,7 @@ vim singlecloud.conf
 ### Common Debug Commands
 ```bash
 # Run with debug logging
-./singlecloud -c singlecloud.conf
+./gaocloud -c gaocloud.conf
 
 # Check cluster status
 curl -H "Authorization: Bearer $TOKEN" http://localhost:80/apis/zcloud.cn/v1/clusters

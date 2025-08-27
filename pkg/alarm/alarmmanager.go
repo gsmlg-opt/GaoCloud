@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/zdnscloud/cement/log"
-	resterr "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/gorest/resource"
-	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"cement/log"
+	resterr "gorest/error"
+	"gorest/resource"
+	eb "pkg/eventbus"
+	"pkg/types"
 )
 
 var alarmManager *AlarmManager

@@ -9,8 +9,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/zdnscloud/cement/log"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"cement/log"
+	"pkg/types"
 )
 
 const (

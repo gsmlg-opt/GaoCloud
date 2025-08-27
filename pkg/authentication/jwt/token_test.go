@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	ut "github.com/zdnscloud/cement/unittest"
+	ut "cement/unittest"
 )
 
 func TestTokenCreationAndValidation(t *testing.T) {

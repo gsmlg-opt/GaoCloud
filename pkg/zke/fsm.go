@@ -3,12 +3,12 @@ package zke
 import (
 	"fmt"
 
-	"github.com/gsmlg-opt/gaocloud/pkg/alarm"
-	"github.com/gsmlg-opt/gaocloud/pkg/eventbus"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"pkg/alarm"
+	"pkg/eventbus"
+	"pkg/types"
 
-	"github.com/zdnscloud/cement/fsm"
-	"github.com/zdnscloud/cement/log"
+	"cement/fsm"
+	"cement/log"
 )
 
 const (

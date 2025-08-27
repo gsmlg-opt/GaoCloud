@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/zdnscloud/cement/uuid"
+	"cement/uuid"
 )
 
 type SessionMgr struct {

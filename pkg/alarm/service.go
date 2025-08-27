@@ -6,9 +6,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
-	"github.com/zdnscloud/cement/log"
-	"github.com/zdnscloud/gorest/resource"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"cement/log"
+	"gorest/resource"
+	"pkg/types"
 )
 
 const (

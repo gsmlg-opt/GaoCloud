@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/zdnscloud/kvzoo"
-	"github.com/gsmlg-opt/gaocloud/pkg/db"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"kvzoo"
+	"pkg/db"
+	"pkg/types"
 )
 
 func genTable(name string) (kvzoo.Table, error) {

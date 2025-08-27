@@ -1,8 +1,8 @@
 package alarm
 
 import (
-	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
-	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	eb "pkg/eventbus"
+	"pkg/types"
 )
 
 func subscribeAlarmEvent(cache *AlarmCache, stop chan struct{}) {

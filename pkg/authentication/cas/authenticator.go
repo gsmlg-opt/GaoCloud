@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	resterr "github.com/zdnscloud/gorest/error"
+	resterr "gorest/error"
 )
 
 type Authenticator struct {
