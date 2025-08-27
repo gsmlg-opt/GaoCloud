@@ -37,7 +37,7 @@ var (
 )
 
 func main() {
-	flag.StringVar(&configFile, "c", "singlecloud.conf", "configure file path")
+	flag.StringVar(&configFile, "c", "gaocloud.conf", "configure file path")
 	flag.BoolVar(&genConfFile, "gen", false, "generate initial configure file to current directory")
 	flag.BoolVar(&showVersion, "version", false, "show version")
 	flag.Parse()
@@ -45,7 +45,7 @@ func main() {
 	log.InitLogger(log.Debug)
 
 	if showVersion {
-		fmt.Printf("singlecloud %s (build at %s)\n", version, build)
+		fmt.Printf("gaocloud %s (build at %s)\n", version, build)
 		return
 	}
 
@@ -170,7 +170,7 @@ func genInitConfig() error {
 	if err != nil {
 		return err
 	}
-	configFile := "./singlecloud.conf"
+	configFile := "./gaocloud.conf"
 	log.Debugf("Deploying cluster configuration file: %s", configFile)
 	return ioutil.WriteFile(configFile, yamlConfig, 0640)
 }

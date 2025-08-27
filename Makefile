@@ -6,10 +6,10 @@ IMAGE_CONFIG=`cat zke_image.yml`
 LDFLAGS=-ldflags "-w -s -X main.version=${VERSION} -X main.build=${BUILD} -X github.com/gsmlg-opt/gaocloud/pkg/zke.singleCloudVersion=${VERSION} -X 'github.com/zdnscloud/zke/types.imageConfig=${IMAGE_CONFIG}'"
 GOSRC = $(shell find . -type f -name '*.go')
 
-build: singlecloud
+build: gaocloud
 
-singlecloud: $(GOSRC) 
-	CGO_ENABLED=0 GOOS=linux go build ${LDFLAGS} cmd/singlecloud/singlecloud.go
+gaocloud: $(GOSRC) 
+	CGO_ENABLED=0 GOOS=linux go build ${LDFLAGS} cmd/gaocloud/gaocloud.go
 
 docker: build-image
 	docker push gsmlg-opt/gaocloud:${BRANCH}
@@ -19,7 +19,7 @@ build-image:
 	docker image prune -f
 
 clean:
-	rm -rf singlecloud
+	rm -rf gaocloud
 
 clean-image:
 	docker rmi gsmlg-opt/gaocloud:${VERSION}
