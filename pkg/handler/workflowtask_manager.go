@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 
 	tektonv1alpha1 "github.com/tektoncd/pipeline/pkg/apis/pipeline/v1alpha1"
 	tektonv1alpha2 "github.com/tektoncd/pipeline/pkg/apis/pipeline/v1alpha2"

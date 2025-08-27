@@ -8,7 +8,7 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/zdnscloud/cement/log"
 	"github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const (

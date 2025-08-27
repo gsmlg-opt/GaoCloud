@@ -12,7 +12,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const goTemp = `
@@ -22,8 +22,8 @@ import (
         "log"   
                         
         "github.com/zdnscloud/gorest/resource/schema"
-        "github.com/zdnscloud/singlecloud/pkg/handler"
-        "github.com/zdnscloud/singlecloud/pkg/types"
+        "github.com/gsmlg-opt/gaocloud/pkg/handler"
+        "github.com/gsmlg-opt/gaocloud/pkg/types"
 )                                       
 
 func main() {                                                                           

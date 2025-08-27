@@ -20,8 +20,8 @@ import (
 	"github.com/zdnscloud/cement/slice"
 	resterror "github.com/zdnscloud/gorest/error"
 	"github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/charts"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/charts"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const (

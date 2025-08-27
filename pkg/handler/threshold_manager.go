@@ -12,10 +12,10 @@ import (
 	"github.com/zdnscloud/gorest/resource"
 	restresource "github.com/zdnscloud/gorest/resource"
 	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/alarm"
-	"github.com/zdnscloud/singlecloud/pkg/db"
-	eb "github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/alarm"
+	"github.com/gsmlg-opt/gaocloud/pkg/db"
+	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const (

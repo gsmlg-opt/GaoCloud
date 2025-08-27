@@ -14,9 +14,9 @@ import (
 	"github.com/zdnscloud/gok8s/client"
 	storagev1 "github.com/zdnscloud/immense/pkg/apis/zcloud/v1"
 	"github.com/zdnscloud/immense/pkg/common"
-	"github.com/zdnscloud/singlecloud/pkg/clusteragent"
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/pkg/zke"
+	"github.com/gsmlg-opt/gaocloud/pkg/clusteragent"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/zke"
 )
 
 const (

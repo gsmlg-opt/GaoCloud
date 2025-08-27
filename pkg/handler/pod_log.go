@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/zdnscloud/singlecloud/pkg/zke"
+	"github.com/gsmlg-opt/gaocloud/pkg/zke"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/client-go/kubernetes/scheme"
 

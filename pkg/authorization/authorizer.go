@@ -7,7 +7,7 @@ import (
 
 	resttypes "github.com/zdnscloud/gorest/resource"
 	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const (

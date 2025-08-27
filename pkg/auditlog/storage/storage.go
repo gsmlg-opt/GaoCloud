@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 
 	"github.com/zdnscloud/kvzoo"
 )

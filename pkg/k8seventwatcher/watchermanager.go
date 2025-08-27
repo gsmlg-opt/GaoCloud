@@ -4,8 +4,8 @@ import (
 	"sync"
 
 	"github.com/zdnscloud/cement/log"
-	eb "github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const MaxEventCount = 4096

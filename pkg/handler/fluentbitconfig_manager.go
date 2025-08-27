@@ -18,8 +18,8 @@ import (
 	resterr "github.com/zdnscloud/gorest/error"
 	"github.com/zdnscloud/gorest/resource"
 	"github.com/zdnscloud/iniconfig"
-	eb "github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const (

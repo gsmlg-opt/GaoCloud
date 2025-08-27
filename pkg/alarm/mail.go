@@ -7,7 +7,7 @@ import (
 	"gopkg.in/gomail.v2"
 
 	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const (

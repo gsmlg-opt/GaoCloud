@@ -12,8 +12,8 @@ import (
 	"github.com/zdnscloud/gorest"
 	resterr "github.com/zdnscloud/gorest/error"
 	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/authentication/session"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/authentication/session"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const (

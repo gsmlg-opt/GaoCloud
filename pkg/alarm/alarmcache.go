@@ -12,7 +12,7 @@ import (
 	"github.com/zdnscloud/cement/log"
 	"github.com/zdnscloud/cement/slice"
 	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const (

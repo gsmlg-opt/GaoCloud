@@ -1,4 +1,4 @@
-module github.com/zdnscloud/singlecloud
+module github.com/gsmlg-opt/gaocloud
 
 go 1.13
 

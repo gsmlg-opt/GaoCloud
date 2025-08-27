@@ -11,7 +11,7 @@ import (
 	"github.com/zdnscloud/gok8s/client"
 	resterr "github.com/zdnscloud/gorest/error"
 	restresource "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 type StorageClassManager struct {

@@ -10,8 +10,8 @@ import (
 	"github.com/zdnscloud/gok8s/client"
 	resterr "github.com/zdnscloud/gorest/error"
 	resource "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/clusteragent"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/clusteragent"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 type BlockDeviceManager struct {

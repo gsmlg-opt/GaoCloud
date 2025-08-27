@@ -16,8 +16,8 @@ import (
 	resterror "github.com/zdnscloud/gorest/error"
 	"github.com/zdnscloud/gorest/resource"
 	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/db"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/db"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const UserQuotaTable = "userquota"

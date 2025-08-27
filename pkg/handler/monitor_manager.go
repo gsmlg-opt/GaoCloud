@@ -6,9 +6,9 @@ import (
 	"path"
 	"time"
 
-	"github.com/zdnscloud/singlecloud/pkg/charts"
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/pkg/zke"
+	"github.com/gsmlg-opt/gaocloud/pkg/charts"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/zke"
 
 	appv1beta1 "github.com/zdnscloud/application-operator/pkg/apis/app/v1beta1"
 	"github.com/zdnscloud/cement/log"

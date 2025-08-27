@@ -4,9 +4,9 @@ import (
 	"net/http"
 
 	resterr "github.com/zdnscloud/gorest/error"
-	"github.com/zdnscloud/singlecloud/pkg/authentication/cas"
-	"github.com/zdnscloud/singlecloud/pkg/authentication/jwt"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/authentication/cas"
+	"github.com/gsmlg-opt/gaocloud/pkg/authentication/jwt"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 type Authenticator struct {

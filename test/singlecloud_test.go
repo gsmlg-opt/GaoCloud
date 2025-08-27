@@ -18,13 +18,13 @@ import (
 	ut "github.com/zdnscloud/cement/unittest"
 	zkecore "github.com/zdnscloud/zke/core"
 
-	"github.com/zdnscloud/singlecloud/pkg/authentication"
-	"github.com/zdnscloud/singlecloud/pkg/authorization"
-	"github.com/zdnscloud/singlecloud/pkg/clusteragent"
-	//"github.com/zdnscloud/singlecloud/pkg/globaldns"
-	"github.com/zdnscloud/singlecloud/pkg/handler"
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/server"
+	"github.com/gsmlg-opt/gaocloud/pkg/authentication"
+	"github.com/gsmlg-opt/gaocloud/pkg/authorization"
+	"github.com/gsmlg-opt/gaocloud/pkg/clusteragent"
+	//"github.com/gsmlg-opt/gaocloud/pkg/globaldns"
+	"github.com/gsmlg-opt/gaocloud/pkg/handler"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/server"
 	storage "github.com/zdnscloud/kvzoo/backend/bolt"
 )
 

@@ -7,8 +7,8 @@ import (
 
 	resterror "github.com/zdnscloud/gorest/error"
 	"github.com/zdnscloud/gorest/resource"
-	ca "github.com/zdnscloud/singlecloud/pkg/clusteragent"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	ca "github.com/gsmlg-opt/gaocloud/pkg/clusteragent"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 type SvcMeshWorkloadManager struct {

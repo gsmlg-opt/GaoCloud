@@ -8,7 +8,7 @@ import (
 
 	ut "github.com/zdnscloud/cement/unittest"
 	"github.com/zdnscloud/kvzoo/backend/bolt"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 	"github.com/zdnscloud/kvzoo"
 )
 

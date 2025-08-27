@@ -5,8 +5,8 @@ import (
 	"fmt"
 
 	"github.com/zdnscloud/gok8s/client"
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/pkg/zke"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/zke"
 )
 
 const (

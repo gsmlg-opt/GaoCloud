@@ -3,7 +3,7 @@ package k8seventwatcher
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 	"net/http"
 
 	"github.com/gorilla/websocket"

@@ -12,9 +12,9 @@ import (
 	"github.com/zdnscloud/gorest/resource"
 
 	"github.com/zdnscloud/kvzoo"
-	"github.com/zdnscloud/singlecloud/pkg/auditlog/storage"
-	"github.com/zdnscloud/singlecloud/pkg/db"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/auditlog/storage"
+	"github.com/gsmlg-opt/gaocloud/pkg/db"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const (

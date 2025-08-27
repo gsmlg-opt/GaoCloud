@@ -6,8 +6,8 @@ import (
 	"github.com/zdnscloud/cement/log"
 
 	"github.com/zdnscloud/gok8s/exec"
-	eb "github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 type ExecutorManager struct {

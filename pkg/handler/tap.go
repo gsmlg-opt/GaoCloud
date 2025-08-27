@@ -18,7 +18,7 @@ import (
 	sm "github.com/zdnscloud/servicemesh"
 	pb "github.com/zdnscloud/servicemesh/public"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 const (

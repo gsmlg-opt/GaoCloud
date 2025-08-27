@@ -10,17 +10,17 @@ import (
 	"github.com/zdnscloud/cement/x509"
 	"gopkg.in/yaml.v2"
 
-	"github.com/zdnscloud/singlecloud/config"
-	"github.com/zdnscloud/singlecloud/pkg/alarm"
-	"github.com/zdnscloud/singlecloud/pkg/authentication"
-	"github.com/zdnscloud/singlecloud/pkg/authorization"
-	"github.com/zdnscloud/singlecloud/pkg/clusteragent"
-	"github.com/zdnscloud/singlecloud/pkg/db"
-	"github.com/zdnscloud/singlecloud/pkg/globaldns"
-	"github.com/zdnscloud/singlecloud/pkg/handler"
-	"github.com/zdnscloud/singlecloud/pkg/k8seventwatcher"
-	"github.com/zdnscloud/singlecloud/pkg/k8sshell"
-	"github.com/zdnscloud/singlecloud/server"
+	"github.com/gsmlg-opt/gaocloud/config"
+	"github.com/gsmlg-opt/gaocloud/pkg/alarm"
+	"github.com/gsmlg-opt/gaocloud/pkg/authentication"
+	"github.com/gsmlg-opt/gaocloud/pkg/authorization"
+	"github.com/gsmlg-opt/gaocloud/pkg/clusteragent"
+	"github.com/gsmlg-opt/gaocloud/pkg/db"
+	"github.com/gsmlg-opt/gaocloud/pkg/globaldns"
+	"github.com/gsmlg-opt/gaocloud/pkg/handler"
+	"github.com/gsmlg-opt/gaocloud/pkg/k8seventwatcher"
+	"github.com/gsmlg-opt/gaocloud/pkg/k8sshell"
+	"github.com/gsmlg-opt/gaocloud/server"
 )
 
 const (

@@ -7,9 +7,9 @@ import (
 	"github.com/zdnscloud/cement/log"
 	resterr "github.com/zdnscloud/gorest/error"
 	restresource "github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/authentication/jwt"
-	"github.com/zdnscloud/singlecloud/pkg/authorization"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/authentication/jwt"
+	"github.com/gsmlg-opt/gaocloud/pkg/authorization"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 type UserManager struct {

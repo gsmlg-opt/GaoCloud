@@ -4,8 +4,8 @@ import (
 	"time"
 
 	"github.com/zdnscloud/gorest/resource"
-	eb "github.com/zdnscloud/singlecloud/pkg/eventbus"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	eb "github.com/gsmlg-opt/gaocloud/pkg/eventbus"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 type AlarmEvent struct {

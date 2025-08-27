@@ -3,7 +3,7 @@ package zke
 import (
 	"context"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 
 	tektonv1alpha1 "github.com/tektoncd/pipeline/pkg/apis/pipeline/v1alpha1"
 	appv1beta1 "github.com/zdnscloud/application-operator/pkg/apis/app/v1beta1"

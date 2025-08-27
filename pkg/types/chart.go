@@ -2,7 +2,7 @@ package types
 
 import (
 	"github.com/zdnscloud/gorest/resource"
-	"github.com/zdnscloud/singlecloud/pkg/charts"
+	"github.com/gsmlg-opt/gaocloud/pkg/charts"
 )
 
 type Chart struct {

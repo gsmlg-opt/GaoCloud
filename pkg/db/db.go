@@ -10,7 +10,7 @@ import (
 	"github.com/zdnscloud/kvzoo/client"
 	"github.com/zdnscloud/kvzoo/server"
 
-	"github.com/zdnscloud/singlecloud/config"
+	"github.com/gsmlg-opt/gaocloud/config"
 )
 
 const (

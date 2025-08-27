@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 
 	ut "github.com/zdnscloud/cement/unittest"
 	"github.com/zdnscloud/kvzoo/backend/bolt"

@@ -14,7 +14,7 @@ import (
 
 	"github.com/zdnscloud/cement/set"
 	"github.com/zdnscloud/gok8s/client"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 func createServiceAccount(cli client.Client, name, namespace string) error {

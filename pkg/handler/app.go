@@ -9,13 +9,13 @@ import (
 	"github.com/zdnscloud/gorest/adaptor"
 	restresource "github.com/zdnscloud/gorest/resource"
 	"github.com/zdnscloud/gorest/resource/schema"
-	"github.com/zdnscloud/singlecloud/config"
-	"github.com/zdnscloud/singlecloud/pkg/alarm"
-	"github.com/zdnscloud/singlecloud/pkg/auditlog"
-	"github.com/zdnscloud/singlecloud/pkg/authentication"
-	"github.com/zdnscloud/singlecloud/pkg/authorization"
-	"github.com/zdnscloud/singlecloud/pkg/types"
-	"github.com/zdnscloud/singlecloud/pkg/zke/zkelog"
+	"github.com/gsmlg-opt/gaocloud/config"
+	"github.com/gsmlg-opt/gaocloud/pkg/alarm"
+	"github.com/gsmlg-opt/gaocloud/pkg/auditlog"
+	"github.com/gsmlg-opt/gaocloud/pkg/authentication"
+	"github.com/gsmlg-opt/gaocloud/pkg/authorization"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/zke/zkelog"
 )
 
 var (

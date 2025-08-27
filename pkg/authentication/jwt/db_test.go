@@ -7,8 +7,8 @@ import (
 	"github.com/zdnscloud/kvzoo"
 	ut "github.com/zdnscloud/cement/unittest"
 	"github.com/zdnscloud/kvzoo/backend/bolt"
-	"github.com/zdnscloud/singlecloud/pkg/authentication/session"
-	"github.com/zdnscloud/singlecloud/pkg/types"
+	"github.com/gsmlg-opt/gaocloud/pkg/authentication/session"
+	"github.com/gsmlg-opt/gaocloud/pkg/types"
 )
 
 func newAuthenticator(db kvzoo.DB) (*Authenticator, error) {
